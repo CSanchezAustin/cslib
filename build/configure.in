@@ -86,10 +86,6 @@ Makefile.test.incl \
 ../src/pat/Makefile \
 ../src/rpc/Makefile \
 ../src/rpc/http/Makefile \
-../src/res/Makefile \
-../src/res/nt/Makefile \
-../src/res/unix/Makefile \
-../src/res/macosx/Makefile \
 ../src/ser/Makefile \
 ../src/svr/Makefile \
 ../src/svr/nt/Makefile \
