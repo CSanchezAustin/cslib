@@ -1,0 +1,306 @@
+#!/bin/sh
+#
+# Copyright 2011 Chris Sanchez
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
+# Copyright (c) 2001 CALEB Technologies, All rights reserved.
+# Copyright (c) 1998-2001 Chris Sanchez. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+# 
+# This software consists of voluntary contributions made by Chris Sanchez. 
+# Portions of other open source software were used in the creation of this
+# software. Header files for work based on other source bears the 
+# orininator copyright.
+#
+#         Author: Chris Sanchez
+# 
+#      RCS:
+#              $Revision: 2.2 $
+#              $Date: 2002/09/20 20:59:20 $
+#              $Author: $
+#              $Date: $
+#
+#      Contents:	runConfigure
+#
+#   This script will run the "configure" script for the appropriate
+#   platform. Only supported platforms are recognized.
+#
+#   The following variables are defined and exported at the end 
+#   of this script.
+#
+#   MODE
+#   CC
+#   CFLAGS
+#   CXX
+#   CXXFLAGS
+#   LDFLAGS
+#   LIBS
+#   INCLUDES
+#   XERCESHOME
+#   XERCESNAME
+#
+
+usage()
+{
+    echo "runConfigure: Helper script to run \"configure\" for one of the supported platforms"
+    echo "Usage: runConfigure \"options\""
+    echo "       where options may be any of the following:"
+    echo "       -p <platform> (accepts 'linux', 'solaris')"
+    echo "       -c <C compiler type> (accepts 'gnu' or 'sun')"
+    echo "       -m specifies the build mode (accepts 'dbg' or 'rel')"
+    echo "       -b directory of the C/C++ compilers if they are not in the search path"
+    echo "       -l <extra linker options>"
+    echo "       -L specifies additional include paths  (e.g. xercesc, STL port, etc..)"
+    echo "       -L specifies additional libraries (e.g. xerces-c1_4, pthread, etc..)"
+    echo "       -x Xerces home"
+    echo "       -X Xerces name"
+    echo "       -z <extra compiler options>"
+    echo "       -P <install-prefix>"
+    echo "       -C <any one extra configure options>"
+    echo "       -h (to get help on the above commands)"
+}
+
+ERROR_EXIT_CODE=1
+
+if test ${1}o = "o"; then
+   usage
+   exit ${ERROR_EXIT_CODE}
+fi
+
+pw=`pwd`
+csliblocal="`dirname "$pw"`"
+
+if test $1 = "-h"; then
+   usage
+   exit ${ERROR_EXIT_CODE}
+fi
+
+if [ $? != 0 ]
+   then
+   usage
+   exit ${ERROR_EXIT_CODE}
+fi
+
+# Set up the default values for each parameter
+platform=macosx         # linux is the default paltform
+compiler=gnu            # gnu compiler us the default
+mode=dbg                # default mode is debug
+
+xerceshome=/usr/local
+xercesname=xerces-c
+
+linkeroptions=""        # other settings
+compileroptions=""
+configureoptions=""
+lib=""
+includes=""
+
+while [ $# -gt 0 ]
+   do
+   case $1 in
+   -p)
+        platform=$2; shift 2;;
+
+   -c)
+        compiler=$2; shift 2;;
+
+   -m)
+        mode=$2; shift 2;;
+
+   -x)
+        xerceshome=$2; shift 2;;
+
+   -X)
+        xercesname=$2; shift 2;;
+
+   -L)
+        libs="$libs $2"; shift 2;;
+
+   -I)
+        includes="$includes $2"; shift 2;;
+
+   -l)
+        linkeroptions="$linkeroptions $2"; shift 2;;
+
+   -z)
+        compileroptions="$compileroptions $2"; shift 2 ;;
+
+   -P)
+        configureoptions="$configureoptions --prefix=$2"; shift 2;;
+
+   -C)
+        configureoptions="$configureoptions $2"; shift 2;;
+
+   -h)
+        usage
+        exit ${ERROR_EXIT_CODE};;
+
+   *)
+        echo "I do not recognize the option $1. Please type '${0} -h' for help.";
+        exit ${ERROR_EXIT_CODE};;
+   esac
+done
+
+#
+# -p parameter
+# check if the options are correct or not, bail out if incorrect
+#
+case $platform in
+   linux)  xercesname=xerces-c; platform=LINUX;;
+   solaris)  xercesname=xerces-c; platform=SOLARIS;;
+   cygwin)  xercesname=xerces-c; platform=CYGWIN;;
+   macosx)  xercesname=xerces-c; platform=MACOSX;;
+   *)
+      echo "I do not recognize the platform '$platform'. Please type '${0} -h' for help."
+      exit ${ERROR_EXIT_CODE};;
+esac
+
+#
+# -c parameter
+# Process the compiler option
+#
+case $compiler in
+   gnu)
+      ccompiler="gcc"
+      cppcompiler="g++"
+      ;;
+   sun)
+      ccompiler="cc"
+      cppcompiler="CC"
+      ;;
+   *)
+      echo "I do not recognize the compiler '$compiler'. Please type '${0} -h' for help."
+      exit ${ERROR_EXIT_CODE};;
+esac
+
+
+
+#
+# -m parameter
+# Set the build mode
+#
+if test $mode = "rel"; then
+    if test $compiler = "gnu"; then
+        debugflag="-O -DNDEBUG -D_NDEBUG";
+    else
+        debugflag="-fast -DNDEBUG -D_NDEBUG";
+    fi
+else
+    debugflag="-g -DDEBUG -D_DEBUG";
+fi
+
+
+PLATFORM="$platform"
+export PLATFORM
+
+#
+# Set the C/C++ compilers
+#
+CC="$ccompiler"
+export CC
+
+CXX="$cppcompiler"
+export CXX
+
+#
+# Set the extra C and C++ compiler flags
+#
+CXXFLAGS="$compileroptions $debugflag"
+export CXXFLAGS
+
+CFLAGS="$compileroptions $debugflag"
+export CFLAGS
+
+LDFLAGS="$linkeroptions"
+export LDFLAGS
+
+MODE="$mode"
+export MODE
+
+LIBS="$libs"
+export LIBS
+
+INCLUDES="$includes"
+export INCLUDES
+
+XERCESHOME="$xerceshome"
+export XERCESHOME
+
+XERCESNAME="$xercesname"
+export XERCESNAME
+
+CSLIB_PROJECT_LOCAL="$csliblocal"
+export CSLIB_PROJECT_LOCAL
+
+echo "Generating makefiles with the following options ..."
+echo "Platform: $platform"
+echo "C Compiler: ${CC}"
+echo "C++ Compiler: ${CXX}"
+echo "Mode: $mode"
+echo "Additional includes: $includes"
+echo "Xerces Home: $xerceshome"
+
+echo "Additional libs: $libs"
+echo "Extra compile options: $compileroptions"
+echo "Extra link options: $linkeroptions"
+echo "Extra configure options: $configureoptions"
+
+echo
+rm -f config.cache
+rm -f config.log
+rm -f config.status
+sh ./configure $configureoptions
+echo
+echo In future, you may also directly type the following commands to create the Makefiles.
+echo
+echo export MODE=\"$MODE\"
+echo export CC=\"$CC\"
+echo export CFLAGS=\"$CFLAGS\"
+echo export CXX=\"$CXX\"
+echo export CXXFLAGS=\"$CXXFLAGS\"
+echo export LDFLAGS=\"$LDFLAGS\"
+echo export INCLUDES=\"$INCLUDES\"
+echo export LIBS=\"$LIBS\"
+echo export XERCESHOME=\"$XERCESHOME\"
+echo export XERCESNAME=\"$XERCESNAME\"
+
+echo export CSLIB_PROJECT_LOCAL=\"$CSLIB_PROJECT_LOCAL\"
+echo ./configure $configureoptions
+
+echo
+echo If the result of the above commands look OK to you, go to the directory
+echo ${CSLIB_PROJECT_LOCAL} and type \"make\" to make the cslib system.
+
+exit  0;

@@ -1,0 +1,232 @@
+#
+#   Makefile.incl.in
+#   Makefile platform defines for cslib
+#
+# Copyright 2011 Chris Sanchez
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ====================================================================
+#
+# Copyright (c) 2001 Chris Sanchez
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+
+## Copyright (c) 2001 CALEB Technologies, All rights reserved.
+# Copyright (c) 1998-2001 Chris Sanchez. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+# 
+# This software consists of voluntary contributions made by Chris Sanchez. 
+# Portions of other open source software were used in the creation of this
+# software. Header files for work based on other source bears the 
+# orininator copyright.
+#
+#         Author: Chris Sanchez
+# 
+#      RCS:
+#              $Revision: 1.2 $
+#              $Date: 2002/09/20 21:14:15 $
+#              $Author: sanchezc $
+#              $Date: 2002/09/20 21:14:15 $
+#
+#      Contents:	
+#
+
+#PLATFORM=@platform@
+#CC=@cc@
+#CXX=@cxx@
+#CXXFLAGS=@cxxflags@
+#LDFLAGS=@ldflags@
+#LIBS=@libs@
+#INCLUDES=@includes@
+#MODE=@mode@
+
+XERCESHOME=@xerceshome@
+XERCESNAME=@xercesname@
+CSLIB_PROJECT_LOCAL=@csliblocal@
+
+# Define global default target: ALL
+ALL : all
+
+# Source defines
+SRC_BIN_DIR     = ${CSLIB_PROJECT_LOCAL}/bin
+SRC_LIB_DIR     = ${CSLIB_PROJECT_LOCAL}/lib
+SRC_INC_DIR     = ${CSLIB_PROJECT_LOCAL}/h
+SRC_OBJ_DIR     = ${CSLIB_PROJECT_LOCAL}/obj
+SRC_SRC_DIR     = ${CSLIB_PROJECT_LOCAL}/src
+SRC_BUILD_DIR   = ${CSLIB_PROJECT_LOCAL}/build
+SRC_TEST_DIR    = ${CSLIB_PROJECT_LOCAL}/test
+CSLIB_LIB_DIR   = $(SRC_LIB_DIR)/$(PLATFORM)/$(CXX)/$(MODE)
+CSLIB_OBJ_DIR   = $(SRC_OBJ_DIR)/$(PLATFORM)/$(CXX)/$(MODE)
+
+# distribution defines
+DIST_TARGET_DIR = ${CSLIB_PROJECT_LOCAL}/dist
+DIST_HEADER_DIR = $(DIST_TARGET_DIR)/$(VER)/h
+DIST_LIB_DIR    = $(DIST_TARGET_DIR)/$(VER)/lib/@platform@/$(CXX)/$(MODE)
+DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/@platform@/$(CXX)/$(MODE)
+
+# other defines
+CSLIB_INCL      = -I$(SRC_INC_DIR) -I$(SRC_SRC_DIR)/internal -I$(SRC_BUILD_DIR)
+CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCESHOME)/include
+CSLIB_DEF       = -D${PLATFORM} -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE -D__STL_USE_MALLOC
+
+####################### PLATFORM DEPENDENCIES #####################
+
+#=============== SOLARIS SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), SOLARIS)
+  ifeq ($(CXX), g++)
+	PLATFORM_COMPILE_OPTIONS = -fPIC -instances=static -D$(PLATFORM) -Wall -pedantic -D__STRICT_ANSI__ -D__EXTENSIONS__ -D_GNU_SOURCE -D_XOPEN_SOURCE=500
+	ALLLIBS = $(LIBS) -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -lm -lgen
+	MAKELIB = ar r 
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+  else
+	ALLLIBS = $(LIBS) -mt -xildoff
+	PLATFORM_COMPILE_OPTIONS = -KPIC -mt -xs -ptr$(CSLIB_OBJ_DIR) -features=rtti -D$(PLATFORM)
+	MAKELIB = $(CXX) -xar -o
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+  endif
+endif
+
+#=============== LINUX SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), LINUX)
+	PLATFORM_COMPILE_OPTIONS = -fPIC -D$(PLATFORM) -Wall -pedantic -D__STRICT_ANSI__ -D_GNU_SOURCE
+	MAKELIB = ar r 
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+	ALLLIBS = $(LIBS) -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -lc
+endif
+
+#=============== MAC OS X SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), MACOSX)
+    PLATFORM_LIBRARIES = -framework CoreServices
+    PLATFORM_COMPILE_OPTIONS =  -Wall -pedantic
+    MAKELIB=ar r
+    MAKESLIB = ${CXX} -D${PLATFORM} -dynamiclib ${LDFLAGS}
+    MAKESLIB_C = ${CC} -D${PLATFORM} -dynamiclib ${LDFLAGS}
+
+    ifeq (${TRANSCODER}, ICU)
+        ALLLIBS = ${LIBS} -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -licuuc -licudata -lc
+    else
+        ALLLIBS = ${LIBS} -L/usr/local/lib
+    endif
+
+    LD_SONAME = -install_name ${SO_NAME}
+    LD_SODEPDOM = -install_name ${SO_DEPDOM}    
+    LIB_SUFFIX=a
+    SLIB_SUFFIX=dylib
+endif
+
+ALLLIBS += \
+	-l$(XERCESNAME)
+
+###################### STANDARD TOOLS #############################
+DEPFILE = .depends
+CP = -cp -fp
+CP2 = cp -fp
+RM = -rm -f
+RM2 = rm -f
+CAT = cat
+CD = cd
+MKDIR=mkdir
+CHMODE=chmod
+CC1     = $(CXX) $(PLATFORM_COMPILE_OPTIONS)
+JUST_CC = $(CC) -D$(PLATFORM)
+ECHO = echo
+#MAKEDEPEND = -makedepend -f$(DEPFILE) -Y -p$(CSLIB_OBJ_DIR)/
+MAKEDEPEND = -$(CXX) -M 
+
+#----------------------------------------------------------------------
+#	INFO : Makefile Debugging Information.
+
+info :	
+		@echo " "
+		@echo "PLATFORM		: $(PLATFORM)"
+		@echo "CC			: $(CC)"
+		@echo "CXX			: $(CXX)"
+		@echo "CXXFLAGS		: $(CXXFLAGS)"
+		@echo "LDFLAGS		: $(LDFLAGS)"
+		@echo "LIBS			: $(LIBS)"
+		@echo "MODE			: $(MODE)"
+		@echo "-------------------------------------------------------"
+		@echo "SRC_BIN_DIR		: $(SRC_BIN_DIR)"
+		@echo "SRC_LIB_DIR		: $(SRC_LIB_DIR)"
+		@echo "SRC_INC_DIR 		: $(SRC_INC_DIR)"
+		@echo "SRC_OBJ_DIR		: $(SRC_OBJ_DIR)"
+		@echo "SRC_SRC_DIR		: $(SRC_SRC_DIR)"
+		@echo "SRC_BUILD_DIR	: $(SRC_BUILD_DIR)"
+		@echo "SRC_TEST_DIR	: $(SRC_TEST_DIR)"
+		@echo "CSLIB_LIB_DIR  	: $(CSLIB_LIB_DIR)"
+		@echo "CSLIB_OBJ_DIR  	: $(CSLIB_OBJ_DIR)"
+		@echo "-------------------------------------------------------"
+		@echo "DIST_TARGET_DIR	: $(DIST_TARGET_DIR)"
+		@echo "DIST_HEADER_DIR	: $(DIST_HEADER_DIR)"
+		@echo "DIST_LIB_DIR   	: $(DIST_LIB_DIR)"
+		@echo "DIST_BIN_DIR   	: $(DIST_BIN_DIR)"
+		@echo "-------------------------------------------------------"
+		@echo "CSLIB_INCL     	: $(CSLIB_INCL)"
+		@echo "CSLIB_SYS_INCL 	: $(CSLIB_SYS_INCL)"
+		@echo "CSLIB_DEF      	: $(CSLIB_DEF)"
+		@echo "-------------------------------------------------------"
+		@echo "PLATFORM_COMPILE_OPTIONS : $(PLATFORM_COMPILE_OPTIONS)"
+		@echo "EXTRA_COMPILE_OPTIONS    : $(EXTRA_COMPILE_OPTIONS)"
+		@echo "-------------------------------------------------------"
+		@echo "MAKELIB 		: $(MAKELIB)"
+		@echo "ALLLIBS 		: $(ALLLIBS)"
+		@echo " "	

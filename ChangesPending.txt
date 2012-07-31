@@ -1,0 +1,11 @@
+Need to change 
+
+
+XMLUtils:
+
+	DOMElement* createDomNode
+	DOMText* getTextNode
+	DOMNode* findNodeByAttribute
+	DOMDocument* getDocument
+	DOMDocument* toDocument
+	DOMDocument* createDocument

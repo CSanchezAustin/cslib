@@ -1,0 +1,545 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: CslibMsg - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo"..\obj\vc6\win32rel/Version.res" /i "\chriss\src\cslib-working\src\log\nt" /d "NDEBUG" "F:\chriss\src\cslib-working\src\log\nt\Version.rc"" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F3.tmp" with contents
+[
+/nologo /MT /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"..\obj\vc6\win32rel/CslibMsg.pch" /YX /Fo"..\obj\vc6\win32rel/" /Fd"..\obj\vc6\win32rel/" /FD /c 
+"F:\chriss\src\cslib-working\src\log\nt\CslibMsgr.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F3.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F4.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"..\bin\vc6\win32rel/CslibMsg.pdb" /machine:I386 /out:"..\bin\vc6\win32rel/CslibMsg.dll" /implib:"..\bin\vc6\win32rel/CslibMsg.lib" 
+"\chriss\src\cslib-working\obj\vc6\win32rel\CslibMsgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\Version.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F4.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+CslibMsgr.c
+Linking...
+   Creating library ..\bin\vc6\win32rel/CslibMsg.lib and object ..\bin\vc6\win32rel/CslibMsg.exp
+
+
+
+<h3>Results</h3>
+CslibMsg.dll - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: CslibMsg - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x809 /fo"..\obj\vc6\win32dbg/Version.res" /i "\chriss\src\cslib-working\src\log\nt" /d "_DEBUG" "F:\chriss\src\cslib-working\src\log\nt\Version.rc"" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F8.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Fp"..\obj\vc6\win32dbg/CslibMsg.pch" /YX /Fo"..\obj\vc6\win32dbg/" /Fd"..\obj\vc6\win32dbg/" /FD /c 
+"F:\chriss\src\cslib-working\src\log\nt\CslibMsgr.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F8.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F9.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /dll /incremental:yes /pdb:"..\bin\vc6\win32dbg/CslibMsg.pdb" /debug /machine:I386 /out:"..\bin\vc6\win32dbg/CslibMsg.dll" /implib:"..\bin\vc6\win32dbg/CslibMsg.lib" /pdbtype:sept 
+"\chriss\src\cslib-working\obj\vc6\win32dbg\CslibMsgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\Version.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4F9.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+CslibMsgr.c
+Linking...
+   Creating library ..\bin\vc6\win32dbg/CslibMsg.lib and object ..\bin\vc6\win32dbg/CslibMsg.exp
+
+
+
+<h3>Results</h3>
+CslibMsg.dll - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: cslib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FD.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include" /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include\xercesc" /I "..\h" /D "NDEBUG" /D "NOMINMAX" /D "WIN32" /D "_WINDOWS" /D _WIN32_WINNT=0x0400 /Fp"..\obj\vc6\win32rel/cslib.pch" /Yu"cslib.h" /Fo"..\obj\vc6\win32rel/" /Fd"..\obj\vc6\win32rel/" /FD /c 
+"F:\chriss\src\cslib-working\src\core\Debug.cpp"
+"F:\chriss\src\cslib-working\src\core\HandleObject.cpp"
+"F:\chriss\src\cslib-working\src\file\FileAttributes.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIterator.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIteratorImp.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIterImpWin32.cpp"
+"F:\chriss\src\cslib-working\src\file\FileUtils.cpp"
+"F:\chriss\src\cslib-working\src\lang\Date.cpp"
+"F:\chriss\src\cslib-working\src\lang\ScheduleTime.cpp"
+"F:\chriss\src\cslib-working\src\lang\String.cpp"
+"F:\chriss\src\cslib-working\src\log\nt\EventLog.cpp"
+"F:\chriss\src\cslib-working\src\log\nt\LogNTEventLogImpl.cpp"
+"F:\chriss\src\cslib-working\src\log\LogImplementationFactory.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdFileImpl.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdFormatter.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdLogger.cpp"
+"F:\chriss\src\cslib-working\src\rpc\http\RpcHttpAuthenticator.cpp"
+"F:\chriss\src\cslib-working\src\rpc\http\RpcHttpTransport.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcAuthenticatorFactory.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcDispatcher.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcInterface.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcMessage.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcServer.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcTransportFactory.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComInitializer.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComponentFactory.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComponentLoader.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysContext.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysCounterMgr.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysManager.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysPathMgr.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurity.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurityAttributes.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurityDescriptor.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdCriticalSection.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdEvent.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdManager.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdMutex.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdPool.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdQueue.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdRWLock.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdScheduler.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdSemaphore.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdSyncObject.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdThread.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdWaitableTimer.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilDllLoader.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilMapping.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilPattern.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilStreaming.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilStringUtils.cpp"
+"F:\chriss\src\cslib-working\src\xml\XmlDomUtils.cpp"
+"F:\chriss\src\cslib-working\src\net\Net.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpClientPost.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpContent.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpSerPost.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpUtils.cpp"
+"F:\chriss\src\cslib-working\src\net\NetSocket.cpp"
+"F:\chriss\src\cslib-working\src\fwk\fwkBootstrap.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\CService.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\CServiceInstall.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\NTServiceMain.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerFileInputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerFileOutputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerMemInputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerMemOutputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerSerializationMgr.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FD.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FE.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include" /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include\xercesc" /I "..\h" /D "NDEBUG" /D "NOMINMAX" /D "WIN32" /D "_WINDOWS" /D _WIN32_WINNT=0x0400 /Fp"..\obj\vc6\win32rel/cslib.pch" /Yc"cslib.h" /Fo"..\obj\vc6\win32rel/" /Fd"..\obj\vc6\win32rel/" /FD /c 
+"F:\chriss\src\cslib-working\src\cslib.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FE.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FF.tmp" with contents
+[
+/nologo /out:"..\lib\vc6\win32rel\cslib.lib" 
+"\chriss\src\cslib-working\obj\vc6\win32rel\Debug.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\HandleObject.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\FileAttributes.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\FileIterator.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\FileIteratorImp.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\FileIterImpWin32.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\FileUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\Date.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ScheduleTime.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\String.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\EventLog.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\LogNTEventLogImpl.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\LogImplementationFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\LogStdFileImpl.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\LogStdFormatter.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\LogStdLogger.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcHttpAuthenticator.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcHttpTransport.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcAuthenticatorFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcDispatcher.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcInterface.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcMessage.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcServer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\RpcTransportFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysComInitializer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysComponentFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysComponentLoader.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysContext.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysCounterMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysManager.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysPathMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysSecurity.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysSecurityAttributes.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SysSecurityDescriptor.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdCriticalSection.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdEvent.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdManager.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdMutex.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdPool.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdQueue.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdRWLock.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdScheduler.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdSemaphore.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdSyncObject.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdThread.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\ThdWaitableTimer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\UtilDllLoader.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\UtilMapping.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\UtilPattern.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\UtilStreaming.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\UtilStringUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\XmlDomUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\Net.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NetHttpClientPost.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NetHttpContent.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NetHttpSerPost.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NetHttpUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NetSocket.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\fwkBootstrap.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\CService.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\CServiceInstall.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\NTServiceMain.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SerFileInputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SerFileOutputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SerMemInputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SerMemOutputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\SerSerializationMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32rel\cslib.obj"
+"\chriss\src\cslib-working\bin\vc6\win32rel\CslibMsg.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC4FF.tmp"
+<h3>Output Window</h3>
+Compiling...
+cslib.cpp
+Compiling...
+Debug.cpp
+HandleObject.cpp
+FileAttributes.cpp
+FileIterator.cpp
+FileIteratorImp.cpp
+FileIterImpWin32.cpp
+FileUtils.cpp
+Date.cpp
+ScheduleTime.cpp
+String.cpp
+EventLog.cpp
+LogNTEventLogImpl.cpp
+LogImplementationFactory.cpp
+LogStdFileImpl.cpp
+LogStdFormatter.cpp
+LogStdLogger.cpp
+RpcHttpAuthenticator.cpp
+RpcHttpTransport.cpp
+RpcAuthenticatorFactory.cpp
+RpcDispatcher.cpp
+Generating Code...
+Compiling...
+RpcInterface.cpp
+RpcMessage.cpp
+RpcServer.cpp
+RpcTransportFactory.cpp
+SysComInitializer.cpp
+SysComponentFactory.cpp
+SysComponentLoader.cpp
+SysContext.cpp
+SysCounterMgr.cpp
+SysManager.cpp
+SysPathMgr.cpp
+SysSecurity.cpp
+SysSecurityAttributes.cpp
+SysSecurityDescriptor.cpp
+ThdCriticalSection.cpp
+ThdEvent.cpp
+ThdManager.cpp
+ThdMutex.cpp
+ThdPool.cpp
+ThdQueue.cpp
+Generating Code...
+Compiling...
+ThdRWLock.cpp
+ThdScheduler.cpp
+ThdSemaphore.cpp
+ThdSyncObject.cpp
+ThdThread.cpp
+ThdWaitableTimer.cpp
+UtilDllLoader.cpp
+UtilMapping.cpp
+UtilPattern.cpp
+UtilStreaming.cpp
+UtilStringUtils.cpp
+XmlDomUtils.cpp
+Net.cpp
+NetHttpClientPost.cpp
+NetHttpContent.cpp
+NetHttpSerPost.cpp
+NetHttpUtils.cpp
+NetSocket.cpp
+fwkBootstrap.cpp
+CService.cpp
+Generating Code...
+Compiling...
+CServiceInstall.cpp
+NTServiceMain.cpp
+SerFileInputSource.cpp
+SerFileOutputSource.cpp
+SerMemInputSource.cpp
+SerMemOutputSource.cpp
+SerSerializationMgr.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+cslib.lib - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: cslib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC501.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include" /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include\xercesc" /I "..\h" /D "_DEBUG" /D "NOMINMAX" /D "WIN32" /D "_WINDOWS" /D _WIN32_WINNT=0x0400 /FR"..\obj\vc6\win32dbg/" /Fp"..\obj\vc6\win32dbg/cslib.pch" /Yu"cslib.h" /Fo"..\obj\vc6\win32dbg/" /Fd"..\obj\vc6\win32dbg/" /FD /GZ /c 
+"F:\chriss\src\cslib-working\src\core\Debug.cpp"
+"F:\chriss\src\cslib-working\src\core\HandleObject.cpp"
+"F:\chriss\src\cslib-working\src\file\FileAttributes.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIterator.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIteratorImp.cpp"
+"F:\chriss\src\cslib-working\src\file\FileIterImpWin32.cpp"
+"F:\chriss\src\cslib-working\src\file\FileUtils.cpp"
+"F:\chriss\src\cslib-working\src\lang\Date.cpp"
+"F:\chriss\src\cslib-working\src\lang\ScheduleTime.cpp"
+"F:\chriss\src\cslib-working\src\lang\String.cpp"
+"F:\chriss\src\cslib-working\src\log\nt\EventLog.cpp"
+"F:\chriss\src\cslib-working\src\log\nt\LogNTEventLogImpl.cpp"
+"F:\chriss\src\cslib-working\src\log\LogImplementationFactory.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdFileImpl.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdFormatter.cpp"
+"F:\chriss\src\cslib-working\src\log\LogStdLogger.cpp"
+"F:\chriss\src\cslib-working\src\rpc\http\RpcHttpAuthenticator.cpp"
+"F:\chriss\src\cslib-working\src\rpc\http\RpcHttpTransport.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcAuthenticatorFactory.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcDispatcher.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcInterface.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcMessage.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcServer.cpp"
+"F:\chriss\src\cslib-working\src\rpc\RpcTransportFactory.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComInitializer.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComponentFactory.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysComponentLoader.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysContext.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysCounterMgr.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysManager.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysPathMgr.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurity.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurityAttributes.cpp"
+"F:\chriss\src\cslib-working\src\sys\SysSecurityDescriptor.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdCriticalSection.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdEvent.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdManager.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdMutex.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdPool.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdQueue.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdRWLock.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdScheduler.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdSemaphore.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdSyncObject.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdThread.cpp"
+"F:\chriss\src\cslib-working\src\thd\ThdWaitableTimer.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilDllLoader.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilMapping.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilPattern.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilStreaming.cpp"
+"F:\chriss\src\cslib-working\src\util\UtilStringUtils.cpp"
+"F:\chriss\src\cslib-working\src\xml\XmlDomUtils.cpp"
+"F:\chriss\src\cslib-working\src\net\Net.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpClientPost.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpContent.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpSerPost.cpp"
+"F:\chriss\src\cslib-working\src\net\NetHttpUtils.cpp"
+"F:\chriss\src\cslib-working\src\net\NetSocket.cpp"
+"F:\chriss\src\cslib-working\src\fwk\fwkBootstrap.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\CService.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\CServiceInstall.cpp"
+"F:\chriss\src\cslib-working\src\svr\nt\NTServiceMain.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerFileInputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerFileOutputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerMemInputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerMemOutputSource.cpp"
+"F:\chriss\src\cslib-working\src\ser\SerSerializationMgr.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC501.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC502.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include" /I "G:\common\opt\xerces-c_2_6_0-windows_nt-msvc_60\include\xercesc" /I "..\h" /D "_DEBUG" /D "NOMINMAX" /D "WIN32" /D "_WINDOWS" /D _WIN32_WINNT=0x0400 /FR"..\obj\vc6\win32dbg/" /Fp"..\obj\vc6\win32dbg/cslib.pch" /Yc"cslib.h" /Fo"..\obj\vc6\win32dbg/" /Fd"..\obj\vc6\win32dbg/" /FD /GZ /c 
+"F:\chriss\src\cslib-working\src\cslib.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC502.tmp" 
+Creating temporary file "C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC503.tmp" with contents
+[
+/nologo /out:"..\lib\vc6\win32dbg\cslib.lib" 
+"\chriss\src\cslib-working\obj\vc6\win32dbg\Debug.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\HandleObject.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\FileAttributes.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\FileIterator.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\FileIteratorImp.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\FileIterImpWin32.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\FileUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\Date.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ScheduleTime.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\String.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\EventLog.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\LogNTEventLogImpl.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\LogImplementationFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\LogStdFileImpl.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\LogStdFormatter.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\LogStdLogger.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcHttpAuthenticator.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcHttpTransport.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcAuthenticatorFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcDispatcher.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcInterface.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcMessage.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcServer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\RpcTransportFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysComInitializer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysComponentFactory.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysComponentLoader.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysContext.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysCounterMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysManager.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysPathMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysSecurity.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysSecurityAttributes.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SysSecurityDescriptor.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdCriticalSection.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdEvent.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdManager.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdMutex.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdPool.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdQueue.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdRWLock.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdScheduler.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdSemaphore.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdSyncObject.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdThread.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\ThdWaitableTimer.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\UtilDllLoader.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\UtilMapping.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\UtilPattern.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\UtilStreaming.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\UtilStringUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\XmlDomUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\Net.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NetHttpClientPost.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NetHttpContent.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NetHttpSerPost.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NetHttpUtils.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NetSocket.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\fwkBootstrap.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\CService.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\CServiceInstall.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\NTServiceMain.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SerFileInputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SerFileOutputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SerMemInputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SerMemOutputSource.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\SerSerializationMgr.obj"
+"\chriss\src\cslib-working\obj\vc6\win32dbg\cslib.obj"
+"\chriss\src\cslib-working\bin\vc6\win32dbg\CslibMsg.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\chriss\LOCALS~1\Temp\RSPC503.tmp"
+<h3>Output Window</h3>
+Compiling...
+cslib.cpp
+Compiling...
+Debug.cpp
+HandleObject.cpp
+FileAttributes.cpp
+FileIterator.cpp
+FileIteratorImp.cpp
+FileIterImpWin32.cpp
+FileUtils.cpp
+Date.cpp
+ScheduleTime.cpp
+String.cpp
+EventLog.cpp
+LogNTEventLogImpl.cpp
+LogImplementationFactory.cpp
+LogStdFileImpl.cpp
+LogStdFormatter.cpp
+LogStdLogger.cpp
+RpcHttpAuthenticator.cpp
+RpcHttpTransport.cpp
+RpcAuthenticatorFactory.cpp
+RpcDispatcher.cpp
+Generating Code...
+Compiling...
+RpcInterface.cpp
+RpcMessage.cpp
+RpcServer.cpp
+RpcTransportFactory.cpp
+SysComInitializer.cpp
+SysComponentFactory.cpp
+SysComponentLoader.cpp
+SysContext.cpp
+SysCounterMgr.cpp
+SysManager.cpp
+SysPathMgr.cpp
+SysSecurity.cpp
+SysSecurityAttributes.cpp
+SysSecurityDescriptor.cpp
+ThdCriticalSection.cpp
+ThdEvent.cpp
+ThdManager.cpp
+ThdMutex.cpp
+ThdPool.cpp
+ThdQueue.cpp
+Generating Code...
+Compiling...
+ThdRWLock.cpp
+ThdScheduler.cpp
+ThdSemaphore.cpp
+ThdSyncObject.cpp
+ThdThread.cpp
+ThdWaitableTimer.cpp
+UtilDllLoader.cpp
+UtilMapping.cpp
+UtilPattern.cpp
+UtilStreaming.cpp
+UtilStringUtils.cpp
+XmlDomUtils.cpp
+Net.cpp
+NetHttpClientPost.cpp
+NetHttpContent.cpp
+NetHttpSerPost.cpp
+NetHttpUtils.cpp
+NetSocket.cpp
+fwkBootstrap.cpp
+CService.cpp
+Generating Code...
+Compiling...
+CServiceInstall.cpp
+NTServiceMain.cpp
+SerFileInputSource.cpp
+SerFileOutputSource.cpp
+SerMemInputSource.cpp
+SerMemOutputSource.cpp
+SerSerializationMgr.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+cslib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

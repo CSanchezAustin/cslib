@@ -1,0 +1,189 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "coretest", "..\test\core\coretest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "filetest", "..\test\file\filetest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fwktest", "..\test\fwk\fwktest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "langtest", "..\test\lang\langtest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "logtest", "..\test\log\logtest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netclient", "..\test\net\netclient\netclient.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "netserver", "..\test\net\netserver\netserver.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nettest", "..\test\net\nettest\nettest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pattest", "..\test\pat\pattest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "http_client_transport", "..\test\rpc\http_client_transport\http_client_transport.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "http_server_transport", "..\test\rpc\http_server_transport\http_server_transport.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rpc_client", "..\test\rpc\rpc_client\rpc_client.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rpc_dispatcher", "..\test\rpc\rpc_dispatcher\rpc_dispatcher.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rpc_server", "..\test\rpc\rpc_server\rpc_server.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sertest", "..\test\ser\sertest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "svrtest", "..\test\svr\svrtest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "systest", "..\test\sys\systest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "thdtest", "..\test\thd\thdtest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "utiltest", "..\test\util\utiltest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "..\test\util\sample.vcproj", "{00127C98-C857-4C9F-A104-56E8CAB8E2A8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xmltest", "..\test\xml\xmltest.vcproj", "{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccProjectUniqueName0 = ..\\test\\util\\sample.vcproj
+		SccProjectName0 = sample
+		SccLocalPath0 = ..\\test\\util
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+		{00127C98-C857-4C9F-A104-56E8CAB8E2A8}.Debug.ActiveCfg = Debug|Win32
+		{00127C98-C857-4C9F-A104-56E8CAB8E2A8}.Debug.Build.0 = Debug|Win32
+		{00127C98-C857-4C9F-A104-56E8CAB8E2A8}.Release.ActiveCfg = Release|Win32
+		{00127C98-C857-4C9F-A104-56E8CAB8E2A8}.Release.Build.0 = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.ActiveCfg = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Debug.Build.0 = Debug|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.ActiveCfg = Release|Win32
+		{FFCBA4C2-F752-4AC2-A359-0CC4F2B07FE2}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

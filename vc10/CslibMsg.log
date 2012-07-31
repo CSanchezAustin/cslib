@@ -1,0 +1,22 @@
+﻿Build started 1/19/2010 8:24:01 AM.
+     1>Project "F:\chriss\src\cslib-working\vc10\CslibMsg.vcxproj" on node 1 (build target(s)).
+     1>_PrepareForBuild:
+         Creating ".\..\obj\vc10\X64dbg\CslibMsg.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       CustomBuild:
+       Skipping target "CustomBuild" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+       ResourceCompile:
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(935,5): warning MSB8012: TargetPath(F:\chriss\src\cslib-working\vc10\.\..\bin\vc10\X64dbg\CslibMsg.dll) does not match the Linker's OutputFile property value (F:\chriss\src\cslib-working\bin\vc10\X64dbg\CslibMsg.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         All outputs are up-to-date.
+         CslibMsg.vcxproj -> F:\chriss\src\cslib-working\vc10\.\..\bin\vc10\X64dbg\CslibMsg.dll
+       _AfterBuild:
+         Deleting file ".\..\obj\vc10\X64dbg\CslibMsg.unsuccessfulbuild".
+         Touching ".\..\obj\vc10\X64dbg\CslibMsg.lastbuildstate".
+     1>Done Building Project "F:\chriss\src\cslib-working\vc10\CslibMsg.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.17

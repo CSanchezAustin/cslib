@@ -1,0 +1,188 @@
+#
+#   Makefile.test.rules
+#   common Makefile platform defines for cslib
+#
+# Copyright 2011 Chris Sanchez
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ====================================================================
+#
+# Copyright (c) 2001 Chris Sanchez
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+# Copyright (c) 2001 CALEB Technologies, All rights reserved.
+# Copyright (c) 1998-2001 Chris Sanchez. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+#
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+#
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+#
+# This software consists of voluntary contributions made by Chris Sanchez.
+# Portions of other open source software were used in the creation of this
+# software. Header files for work based on other source bears the
+# orininator copyright.
+#
+#         Author: Chris Sanchez
+#
+#      RCS:
+#              $Revision: 2.1 $
+#              $Date: 2002/10/04 21:22:40 $
+#              $Author: sanchezc $
+#              $Date: 2002/10/04 21:22:40 $
+#
+#      Contents:
+#
+#
+# Include makefile for creating executables.
+#
+
+#============================================================================
+#	All Source Code File Names :
+#----------------------------------------------------------------------
+
+ALLSRC = $(CSRC) $(CCSRC) $(CPPSRC)
+
+#============================================================================
+# Template Specification Section
+#----------------------------------------------------------------------------
+
+
+#---------------------------------------------------------------------
+#   Generic Macro Section
+
+C_OBJS   = $(CSRC:.c=.o)
+CC_OBJS  = $(CCSRC:.cc=.o)
+CPP_OBJS = $(CPPSRC:.cpp=.o)
+
+CSLIB_OBJS   = $(CSLIBSRC:.c=.o)
+CCSLIB_OBJS  = $(CCSLIBSRC:.cc=.o)
+CPPSLIB_OBJS = $(CPPSLIBSRC:.cpp=.o)
+
+ALL_OBJS = $(addprefix $(MODULE_OBJ_DIR)/,$(C_OBJS))
+ALL_OBJS += $(addprefix $(MODULE_OBJ_DIR)/,$(CC_OBJS))
+ALL_OBJS += $(addprefix $(MODULE_OBJ_DIR)/,$(CPP_OBJS))
+
+ALL_SLIBOBJS = $(addprefix $(MODULE_OBJ_DIR)/,$(CSLIB_OBJS))
+ALL_SLIBOBJS += $(addprefix $(MODULE_OBJ_DIR)/,$(CCSLIB_OBJS))
+ALL_SLIBOBJS += $(addprefix $(MODULE_OBJ_DIR)/,$(CPPSLIB_OBJS))
+
+#############################################################################
+# Makefile Target Commands
+#----------------------------------------------------------------------------
+#	default
+
+all: Prepare_r BinCopies_r $(MODULE_BIN_DIR)/$(TEST_MODULE_NAME) $(MODULE_BIN_DIR)/$(TEST_MODULE_SLIB_NAME)
+	@echo "Make Completed, executable: "$(MODULE_BIN_DIR/$(TEST_MODULE_NAME)
+	@echo " "
+
+test: all
+
+Prepare_r:
+	-${MKDIR} -p ${MODULE_BIN_DIR}
+	-${MKDIR} -p ${MODULE_OBJ_DIR}
+
+BinCopies_r: $(addprefix $(MODULE_BIN_DIR)/,$(BIN_FILES))
+
+$(MODULE_BIN_DIR)/$(TEST_MODULE_NAME) : $(ALL_OBJS)
+	@echo " "
+	@echo "Executable Section:  " $(TEST_MODULE_NAME)
+	$(RM) $(MODULE_BIN_DIR)/$(TEST_MODULE_NAME)
+	$(CXX) $(ALL_OBJS) $(TEST_DEF) $(LDFLAGS) $(ALLLIBS) -o $(MODULE_BIN_DIR)/$(TEST_MODULE_NAME)
+	@echo " "
+
+$(MODULE_BIN_DIR)/$(TEST_MODULE_SLIB_NAME) : $(ALL_SLIBOBJS)
+	@echo " "
+	@echo "Executable Section :  " $(TEST_MODULE_SLIB_NAME)
+	$(RM) $(MODULE_BIN_DIR)/$(TEST_MODULE_SLIB_NAME)
+	$(MAKESLIB) -o $@ $(ALL_SLIBOBJS) ${ALLLIBS}
+	@echo " "
+
+$(addprefix $(MODULE_BIN_DIR)/,$(BIN_FILES)) :
+	$(LN) $(addprefix $(MODULE_BASE_DIR)/, $(notdir $@)) $(@)
+
+# this may generate unnecessary dependencies, but it makes life easier
+depend::
+	@echo " "
+	@echo "Building Dependencies for "$(TEST_MODULE_NAME)
+	@$(RM) $(DEPFILE)
+ifneq ($(strip $(ALLSRC)),)
+	$(MAKEDEPEND) $(TEST_DEF) $(TEST_INCL) $(TEST_SYS_INCL) $(ALLSRC) | sed -e 's@\([^/]*\):\([ \t]*[^/]*\)@$(MODULE_OBJ_DIR)\/\1:\2@g' > $(DEPFILE)
+endif
+
+clean::
+	@echo " "
+	@echo "Making clean in $(TEST_MODULE_NAME) ..."
+	$(RM) -r ${MODULE_BASE_DIR}/bin ${MODULE_BASE_DIR}/obj
+	$(RM) $(MODULE_BASE_DIR)/*~ $(MODULE_BASE_DIR)/*.err $(MODULE_BASE_DIR)/$(DEPFILE)*
+
+cleanall::
+	@echo " "
+	$(RM) $(MODULE_BASE_DIR)/Makefile $(MODULE_BASE_DIR)/Makefile.bak
+
+######################### BUILD RULES ############################
+
+# Tell make where the object files are for proper resolution of suffix rules
+vpath %.o $(MODULE_OBJ_DIR)
+
+$(MODULE_OBJ_DIR)/%.o : %.cpp
+	@echo "Compuling C++ "
+	$(CC1) -c $(CXXFLAGS) $(TEST_DEF) $(TEST_INCL) $(TEST_SYS_INCL) $(EXTRA_COMPILE_OPTIONS) -o $(@) $(<)
+
+$(MODULE_OBJ_DIR)/%.o : %.c
+	@echo "Compiling C "
+	$(JUST_CC) -c $(CXXFLAGS) $(TEST_DEF) $(TEST_INCL) $(TEST_SYS_INCL) $(EXTRA_COMPILE_OPTIONS) -o $(@) $(<)
+
+$(MODULE_OBJ_DIR)/%.o : %.cc
+	@echo "Compiling cc "
+	$(JUST_CC) -c $(CXXFLAGS) $(TEST_DEF) $(TEST_INCL) $(TEST_SYS_INCL) $(EXTRA_COMPILE_OPTIONS) -o $(@) $(<)
+
+# include all dependencies if they've been generated
+-include $(DEPFILE)

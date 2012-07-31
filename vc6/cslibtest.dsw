@@ -1,0 +1,353 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "coretest"="..\test\core\vc6\coretest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    coretest
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "filetest"="..\test\file\filetest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    filetest
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "fwktest"="..\test\fwk\fwktest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    fwktest
+    ..\test\fwk
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "http_client_transport"="..\test\rpc\http_client_transport\http_client_transport.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    http_client_transport
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "http_server_transport"="..\test\rpc\http_server_transport\http_server_transport.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    http_server_transport
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "langtest"="..\test\lang\langtest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    langtest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "logtest"="..\test\log\logtest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    logtest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "netclient"="..\test\net\netclient\netclient.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/CO/MP/Optimizer/cslib/test/net", XWSAAAAA
+    ..\test\net\netclient
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "netserver"="..\test\net\netserver\netserver.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/CO/MP/Optimizer/cslib/test/net", XWSAAAAA
+    ..\test\net\netserver
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "nettest"="..\test\net\nettest\nettest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/CO/MP/Optimizer/cslib/test/net", XWSAAAAA
+    ..\test\net\nettest
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "pattest"="..\test\pat\pattest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    pattest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "rpc_client"="..\test\rpc\rpc_client\rpc_client.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    rpc_client
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "rpc_dispatcher"="..\test\rpc\rpc_dispatcher\rpc_dispatcher.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    rpc_dispatcher
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "rpc_server"="..\test\rpc\rpc_server\rpc_server.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    rpc_server
+    ..\test
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "sample"="..\test\util\sample.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    sample
+    ..\test\util
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "sertest"="..\test\ser\sertest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    sertest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "svrtest"="..\test\svr\svrtest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    svrtest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "systest"="..\test\sys\systest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    systest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "thdtest"="..\test\thd\thdtest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    thdtest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "utiltest"="..\test\util\utiltest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    utiltest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "xmltest"="..\test\xml\xmltest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    xmltest
+    ..
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

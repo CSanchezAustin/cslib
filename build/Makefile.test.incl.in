@@ -1,0 +1,236 @@
+#
+#   Makefile.test.incl
+#   common Makefile platform defines for cslib
+#
+# Copyright 2011 Chris Sanchez
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ====================================================================
+#
+# Copyright (c) 2001 Chris Sanchez
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+#
+# Copyright (c) 2001 CALEB Technologies, All rights reserved.
+# Copyright (c) 1998-2001 Chris Sanchez. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+# 
+# This software consists of voluntary contributions made by Chris Sanchez. 
+# Portions of other open source software were used in the creation of this
+# software. Header files for work based on other source bears the 
+# orininator copyright.
+#
+#         Author: Chris Sanchez
+# 
+#      RCS:
+#              $Revision: 2.1 $
+#              $Date: 2002/09/25 14:47:24 $
+#              $Author: sanchezc $
+#              $Date: 2002/09/25 14:47:24 $
+#
+#      Contents:	
+#
+###################################################################
+
+#PLATFORM=@platform@
+#CC=@cc@
+#CXX=@cxx@
+#CXXFLAGS=@cxxflags@
+#LDFLAGS=@ldflags@
+#LIBS=@libs@
+#INCLUDES=@includes@
+#MODE=@mode@
+
+XERCESHOME=@xerceshome@
+XERCESNAME=@xercesname@
+CSLIB_PROJECT_LOCAL=@csliblocal@
+
+
+ALL: all
+
+# global settings
+TEST_BASE_DIR		= ${CSLIB_PROJECT_LOCAL}/test
+CSLIB_TARGETLIBNAME	= cslib-$(VER)
+
+# cslib settings
+CSLIB_DIST_TARGET_DIR	= ${CSLIB_PROJECT_LOCAL}/dist
+CSLIB_DIST_HEADER_DIR	= $(CSLIB_DIST_TARGET_DIR)/$(VER)/h
+CSLIB_DIST_LIB_DIR		= $(CSLIB_DIST_TARGET_DIR)/$(VER)/lib/$(PLATFORM)/$(CXX)/$(MODE)
+
+# test module settings
+MODULE_BASE_DIR		= ${TEST_BASE_DIR}/$(TEST_MODULE)
+MODULE_BIN_DIR		= ${MODULE_BASE_DIR}/bin/$(PLATFORM)-$(MODE)
+MODULE_OBJ_DIR		= ${MODULE_BASE_DIR}/obj/$(PLATFORM)-$(MODE)
+
+# other settings
+TEST_INCL			= -I$(CSLIB_DIST_HEADER_DIR) -I$(MODULE_BASE_DIR)
+TEST_SYS_INCL			= $(INCLUDES) -I$(XERCESHOME)/include/xercesc
+TEST_DEF		  	  	= -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
+
+####################### PLATFORM DEPENDENCIES #####################
+
+#=============== SOLARIS SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), SOLARIS)
+  ifeq ($(CXX), g++)
+	PLATFORM_COMPILE_OPTIONS = -fPIC -instances=static -D$(PLATFORM) -Wall -pedantic -D__STRICT_ANSI__ -D_GNU_SOURCE
+	MAKELIB = ar r 
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+	ALLLIBS = $(LIBS) -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -lm -lgen
+  else
+	ALLLIBS = $(LIBS) -mt -xildoff
+	PLATFORM_COMPILE_OPTIONS = -KPIC -mt -xs -ptr$(MODULE_OBJ_DIR) -features=rtti -D$(PLATFORM)
+	MAKELIB = $(CXX) -xar -o
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+  endif
+endif
+
+#=============== LINUX SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), LINUX)
+	PLATFORM_COMPILE_OPTIONS = -fPIC -D$(PLATFORM) -Wall  -pedantic -D__STRICT_ANSI__ -D_GNU_SOURCE
+	MAKELIB = ar r 
+	MAKESLIB = ${CXX} -D${PLATFORM} -shared ${LDFLAGS}
+    	MAKESLIB_C = ${CC} -D${PLATFORM} -shared ${LDFLAGS}
+	LIB_SUFFIX=a
+	SLIB_SUFFIX=so
+	ALLLIBS = $(LIBS) -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -lc
+endif
+
+
+#=============== MAC OS X SPECIFIC OPTIONS =========================
+ifeq ($(PLATFORM), MACOSX)
+    PLATFORM_LIBRARIES = -framework CoreServices
+    PLATFORM_COMPILE_OPTIONS = -D${PLATFORM} -D_REENTRANT -Wall
+    MAKELIB=ar r
+    MAKESLIB = ${CXX} -D${PLATFORM} -dynamiclib ${LDFLAGS}
+    MAKESLIB_C = ${CC} -D${PLATFORM} -dynamiclib ${LDFLAGS}
+
+    ifeq (${TRANSCODER}, ICU)
+        ALLLIBS = ${LIBS} -L/usr/lib -L/usr/local/lib -L/usr/ccs/lib -licuuc -licudata -lc
+    else
+        ALLLIBS = ${LIBS} -L/usr/local/lib
+    endif
+
+    LD_SONAME = -install_name ${SO_NAME}
+    LD_SODEPDOM = -install_name ${SO_DEPDOM}    
+    LIB_SUFFIX=a
+    SLIB_SUFFIX=dylib
+endif
+
+
+
+#=============== Additional Libraries =========================
+LDFLAGS += \
+	-L${XERCESHOME}/lib \
+	-L${CSLIB_DIST_LIB_DIR}
+
+ALLLIBS += \
+	-lpthread \
+	-ldl \
+	-l$(CSLIB_TARGETLIBNAME) \
+	-l$(XERCESNAME)
+
+###################### STANDARD TOOLS #############################
+DEPFILE = .depends
+CP = -cp -fp
+CP2 = cp -fp
+LN = -ln -s
+RM = -rm -f
+RM2 = rm -f
+CAT = cat
+CD = cd
+MKDIR=mkdir
+CHMODE=chmod
+CC1     = $(CXX) $(PLATFORM_COMPILE_OPTIONS)
+JUST_CC = $(CC) -D$(PLATFORM)
+ECHO = echo
+MAKEDEPEND = -$(CXX) -M 
+
+#----------------------------------------------------------------------
+#	INFO : Makefile Debugging Information.
+
+info :	
+		@echo " "
+		@echo "PLATFORM : $(PLATFORM)"
+		@echo "CC       : $(CC)"
+		@echo "CXX      : $(CXX)"
+		@echo "CXXFLAGS : $(CXXFLAGS)"
+		@echo "LDFLAGS  : $(LDFLAGS)"
+		@echo "LIBS     : $(LIBS)"
+		@echo "MODE     : $(MODE)"
+		@echo "-------------------------------------------------------"
+		@echo "CSLIB_DIST_TARGET_DIR  	: $(CSLIB_DIST_TARGET_DIR)"
+		@echo "CSLIB_DIST_HEADER_DIR  	: $(CSLIB_DIST_HEADER_DIR)"
+		@echo "CSLIB_DIST_LIB_DIR		: $(CSLIB_DIST_LIB_DIR)"
+		@echo "-------------------------------------------------------"
+		@echo "MODULE_BASE_DIR	: $(MODULE_BASE_DIR)"
+		@echo "MODULE_BIN_DIR   : $(MODULE_BIN_DIR)"
+		@echo "MODULE_OBJ_DIR   : $(MODULE_OBJ_DIR)"
+		@echo "TEST_INCL       	: $(TEST_INCL)"
+		@echo "TEST_SYS_INCL    : $(TEST_SYS_INCL)"
+		@echo "TEST_DEF       	: $(TEST_DEF)"
+		@echo "-------------------------------------------------------"
+		@echo "PLATFORM_COMPILE_OPTIONS : $(PLATFORM_COMPILE_OPTIONS)"
+		@echo "EXTRA_COMPILE_OPTIONS    : $(EXTRA_COMPILE_OPTIONS)"
+		@echo "-------------------------------------------------------"
+		@echo "ALLLIBS 			: $(ALLLIBS)"
+		@echo "-------------------------------------------------------"
+		@echo "TEST_MODULE 			: $(TEST_MODULE)"
+		@echo "TEST_MODULE_NAME 			: $(TEST_MODULE_NAME)"
+		@echo "TEST_MODULE_SLIB_NAME 			: $(TEST_MODULE_SLIB_NAME)"
+		@echo " "	

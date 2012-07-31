@@ -1,0 +1,7 @@
+<?xml version = '1.0'?>
+<sys-paths root="/tmp/caleb/optimizer">
+    <path tag="$tmp_dir">$root/tmp</path>
+    <path tag="$cache_dir">cache</path>
+    <path tag="$session_dir">$cache_dir\sessions</path>
+    <path tag="$cfg_dir">cfg</path>
+</sys-paths>

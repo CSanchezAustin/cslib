@@ -1,0 +1,120 @@
+dnl ##
+dnl ## PROLOG
+dnl ##
+
+dnl # autoconf initialization
+AC_INIT(cslib, 1.0.4, sanchez.chris@gmail.com)
+AC_CONFIG_SRCDIR([../src/cslib.cpp])
+AC_CONFIG_HEADER([config.h])
+
+dnl Checks for programs.
+#AC_PROG_CXX
+#AC_PROG_CC
+AC_CHECK_PROG(AUTOCONF, autoconf, autoconf, true)
+
+# Checks for libraries.
+
+# Checks for header files.
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_C_CONST
+AC_STRUCT_TM
+
+# Checks for library functions.
+AC_HEADER_STDC
+#AC_FUNC_MKTIME
+AC_TYPE_SIGNAL
+AC_CHECK_FUNCS([bzero gethostbyname gethostname memset mkdir socket strchr pthread_mutex_timedlock sem_timedwait])
+
+dnl Determine the host system and Makefile fragment
+AC_CANONICAL_HOST
+
+dnl Platform-specific Makefile setup
+echo "${host}"
+case "${host}" in
+        *-*-solaris*)	platform=SOLARIS ;;
+        *-*-linux*)	platform=LINUX ;;
+        *-cygwin*)	platform=CYGWIN ;;
+        *-darwin*)	platform=MACOSX ;;
+        *)		platform=UNKNOWN ;;
+esac
+AC_SUBST(platform)
+
+cxx=${CXX}
+AC_SUBST(cxx)
+
+cc=${CC}
+AC_SUBST(cc)
+
+cxxflags=${CXXFLAGS}
+AC_SUBST(cxxflags)
+
+ldflags=${LDFLAGS}
+AC_SUBST(ldflags)
+
+libs=${LIBS}
+AC_SUBST(libs)
+
+includes=${INCLUDES}
+AC_SUBST(includes)
+
+mode=${MODE}
+AC_SUBST(mode)
+
+xerceshome=${XERCESHOME}
+AC_SUBST(xerceshome)
+
+xercesname=${XERCESNAME}
+AC_SUBST(xercesname)
+
+csliblocal=${CSLIB_PROJECT_LOCAL}
+AC_SUBST(csliblocal)
+
+AC_OUTPUT([ \
+Makefile.incl \
+Makefile.test.incl \
+../Makefile \
+../src/Makefile \
+../src/core/Makefile \
+../src/file/Makefile \
+../src/fwk/Makefile \
+../src/lang/Makefile \
+../src/log/Makefile \
+../src/log/nt/Makefile \
+../src/log/unix/Makefile \
+../src/net/Makefile \
+../src/pat/Makefile \
+../src/rpc/Makefile \
+../src/rpc/http/Makefile \
+../src/res/Makefile \
+../src/res/nt/Makefile \
+../src/res/unix/Makefile \
+../src/res/macosx/Makefile \
+../src/ser/Makefile \
+../src/svr/Makefile \
+../src/svr/nt/Makefile \
+../src/svr/unix/Makefile \
+../src/sys/Makefile \
+../src/thd/Makefile \
+../src/util/Makefile \
+../src/xml/Makefile \
+../test/core/Makefile \
+../test/file/Makefile \
+../test/fwk/Makefile \
+../test/lang/Makefile \
+../test/log/Makefile \
+../test/net/netclient/Makefile \
+../test/net/netserver/Makefile \
+../test/net/nettest/Makefile \
+../test/pat/Makefile \
+../test/rpc/http_client_transport/Makefile \
+../test/rpc/http_server_transport/Makefile \
+../test/rpc/rpc_client/Makefile \
+../test/rpc/rpc_dispatcher/Makefile \
+../test/rpc/rpc_server/Makefile \
+../test/ser/Makefile \
+../test/svr/Makefile \
+../test/sys/Makefile \
+../test/thd/Makefile \
+../test/util/Makefile \
+../test/xml/Makefile])

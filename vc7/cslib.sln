@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cslib", "cslib.vcproj", "{99B4D810-F20C-452B-92D0-904702991357}"
+	ProjectSection(ProjectDependencies) = postProject
+		{740079F5-4B0C-40DF-9BC4-CC741AF185A9} = {740079F5-4B0C-40DF-9BC4-CC741AF185A9}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CslibMsg", "CslibMsg.vcproj", "{740079F5-4B0C-40DF-9BC4-CC741AF185A9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 3
+		SccLocalPath0 = .
+		CanCheckoutShared = true
+		SolutionUniqueID = {EB256428-79CA-401D-B003-C9737D10777B}
+		SccProjectUniqueName1 = cslib.vcproj
+		SccLocalPath1 = .
+		CanCheckoutShared = true
+		SccProjectUniqueName2 = CslibMsg.vcproj
+		SccLocalPath2 = .
+		CanCheckoutShared = true
+	EndGlobalSection
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{99B4D810-F20C-452B-92D0-904702991357}.Debug.ActiveCfg = Debug|Win32
+		{99B4D810-F20C-452B-92D0-904702991357}.Debug.Build.0 = Debug|Win32
+		{99B4D810-F20C-452B-92D0-904702991357}.Release.ActiveCfg = Release|Win32
+		{99B4D810-F20C-452B-92D0-904702991357}.Release.Build.0 = Release|Win32
+		{740079F5-4B0C-40DF-9BC4-CC741AF185A9}.Debug.ActiveCfg = Debug|Win32
+		{740079F5-4B0C-40DF-9BC4-CC741AF185A9}.Debug.Build.0 = Debug|Win32
+		{740079F5-4B0C-40DF-9BC4-CC741AF185A9}.Release.ActiveCfg = Release|Win32
+		{740079F5-4B0C-40DF-9BC4-CC741AF185A9}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

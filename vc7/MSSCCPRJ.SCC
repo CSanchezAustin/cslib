@@ -1,0 +1,13 @@
+SCC = This is a source code control file
+
+[cslib.vcproj]
+SCC_Aux_Path = "P4SCC#moochie:1666##chriss##MOOCHIE"
+SCC_Project_Name = Perforce Project
+
+[CslibMsg.vcproj]
+SCC_Aux_Path = "P4SCC#moochie:1666##chriss##MOOCHIE"
+SCC_Project_Name = Perforce Project
+
+[cslib.sln]
+SCC_Aux_Path = "P4SCC#moochie:1666##chriss##MOOCHIE"
+SCC_Project_Name = Perforce Project

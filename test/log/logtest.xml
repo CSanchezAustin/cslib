@@ -1,0 +1,25 @@
+<?xml version = '1.0'?>
+<logger>
+	<level>65535</level>
+	<format>[$3$:$2$] $5$:$4$</format>
+	<stderr>false</stderr>
+	<stdout>false</stdout>
+  <rsrcfile>F:\chriss\src\cslib-working\bin\vc10\win64dbg\CslibMsg.dll</rsrcfile>
+  <impl name="std-file-logger">
+    <log-file>csliblog.txt</log-file>
+    <log-level>0</log-level>
+    <log-level>1</log-level>
+    <log-level>3</log-level>
+    <num-logs>1</num-logs>
+    <log-size>1024</log-size>
+    </impl>
+    <impl name="std-ntevent-logger">
+      <log-level>65535</log-level>
+      <log-server>localhost</log-server>
+      <log-source>cslib-logtest</log-source>
+      <log-msg-dll>F:\chriss\src\cslib-working\bin\vc10\win64dbg\CslibMsg.dll</log-msg-dll>
+      <log-stderr>false</log-stderr>
+      <log-stdout>logtest</log-stdout>
+      <log-pid>true</log-pid>        
+    </impl>
+</logger>

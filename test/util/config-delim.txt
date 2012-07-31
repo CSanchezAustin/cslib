@@ -1,0 +1,13 @@
+[cslib-en]
+ProductVersion     : 1.00.02 (en)
+SpecialBuild       : 1.0.2 (en)
+
+[dummy-en]
+FileDescription    : cslib library Linux(Intel/x86) (dummy)
+FileVersion        : 2001, 1, 0, 8 (dummy)
+
+[cslib-fr]
+# this is a comment
+Comments           : Unix (Linux) Intel/x86 (french)
+CompanyName        : PixelFlipper Technologies (french)
+

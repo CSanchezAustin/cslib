@@ -1,0 +1,36 @@
+2002-07-08 Cs
+
+List of things to add to cslib.
+
+Alarm service
+Timer class
+Time class (GMT)
+d - complete inter-process thread primitives
+memory mapped file
+shared memory class
+thread local storage class
+c - regular expression class
+named pipe class
+communication manager (sockets)
+c - complete file utils
+directory watcher service
+pub/sub service
+changes to rpc server to interace with the comm manager
+database service
+message queue rpc transport
+soap rpc transport
+Transform ScheduleTime from time_t to timespec for Unix high resolution timer
+ldap service
+Support sub-maps in conversion to/from Mapping
+dynamically loaded services for syscontext
+dynamically loaded rpc services for RpcServer
+dynamically loaded http 'servlets' for http transport
+RpcServer to handle SOAP and other content from the transport
+XML to config service or XML to config object converter
+
+
+Legend:
+c - completed
+d - deferred
+
+updates

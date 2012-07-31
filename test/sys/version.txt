@@ -1,0 +1,14 @@
+#version information for the test program
+
+Comments           : Unix (Linux) Intel/x86
+CompanyName        : PixelFlipper Technologies
+FileDescription    : cslib library Linux(Intel/x86)
+FileVersion        : 2001, 1, 0, 8
+InternalName       : cslib
+LegalCopyright     : (c)1998-2002 Chris Sanchez, PixelFlipper Technologies
+LegalTrademarks    : cslib is a trademark of PixelFlipper Technologies
+OriginalFileName   : cslib.a
+PrivateBuild       : Unix (Linux) Intel/x86
+ProductName        : cslib
+ProductVersion     : 1.00.02
+SpecialBuild       : 1.0.2

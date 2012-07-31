@@ -1,0 +1,180 @@
+#
+#   Makefile.in
+#   Makefile template for cslib
+
+# Copyright 2011 Chris Sanchez
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+# ====================================================================
+#
+# Copyright (c) 1998-2001 Chris Sanchez. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions
+# are met:
+# 
+# 1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer. 
+# 
+# 
+# THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+# OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED.  IN NO EVENT SHALL CHRIS SANCHEZ OR
+# ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+# USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+# ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+# OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+# SUCH DAMAGE.
+# ====================================================================
+# 
+# This software consists of voluntary contributions made by Chris Sanchez. 
+# Portions of other open source software were used in the creation of this
+# software. Header files for work based on other source bears the 
+# orininator copyright.
+#
+#         Author: Chris Sanchez
+# 
+#      RCS:
+#              $Revision: 2.3 $
+#              $Date: 2002/09/12 20:37:23 $
+#              $Author: sanchezc $
+#              $Date: 2002/09/12 20:37:23 $
+#
+#      Contents:	
+#
+
+###################################################################
+#                    IMPORTANT NOTE                               #
+###################################################################
+# Before you try to run the Makefile, make sure you have two      #
+# environment variables set.                                      #
+#                                                                 #
+# export CSLIB=<the directory where you installed CSLIB>          #
+# export CS_STL=<the directory where you installed STL PORT>      #
+# export CS_XMLPARSER=<the directory where you installed XERCES>  #
+#                                                                 #
+###################################################################
+
+#all these setting come from the arguments passed in to runConfigure.
+PLATFORM = @platform@
+CC  = @cc@
+CXX = @cxx@
+CXXFLAGS = @cxxflags@
+LDFLAGS = @ldflags@
+LIBS = @libs@
+MODE = @mode@
+
+include ./build/version.incl
+include ./build/Makefile.incl
+
+CSLIB_DIR_NAMES	= ../src core file fwk lang log log/unix log/nt net pat \
+		rpc rpc/http ser svr \
+		svr/unix svr/nt sys thd util xml
+CSLIB_DIRS	= $(foreach subdirs, $(addprefix $(SRC_SRC_DIR)/, \
+		$(CSLIB_DIR_NAMES)), $(subdirs)/__phonyFileName__)
+CSLIB_MAKEFILES	= $(foreach subdirs, $(addprefix $(SRC_SRC_DIR)/, \
+		$(CSLIB_DIR_NAMES)), $(subdirs)/Makefile)
+
+TEST_DIR_NAMES	= core file fwk lang log net/netclient net/netserver \
+		net/nettest pat rpc/http_client_transport \
+		rpc/http_server_transport rpc/rpc_client rpc/rpc_server \
+		rpc/rpc_dispatcher ser svr sys thd util xml
+TEST_DIRS	= $(foreach subdirs, $(addprefix $(SRC_TEST_DIR)/, \
+		$(TEST_DIR_NAMES)), $(subdirs)/__phonyFileName__)
+TEST_BINDIRS	= $(foreach subdirs, $(addprefix $(SRC_TEST_DIR)/, \
+		$(TEST_DIR_NAMES)), $(subdirs)/bin)
+TEST_OBJDIRS	= $(foreach subdirs, $(addprefix $(SRC_TEST_DIR)/, \
+		$(TEST_DIR_NAMES)), $(subdirs)/obj)
+TEST_MAKEFILES	= $(foreach subdirs, $(addprefix $(SRC_TEST_DIR)/, \
+		$(TEST_DIR_NAMES)), $(subdirs)/Makefile)
+TEST_LOGFILES	= $(foreach subdirs, $(addprefix $(SRC_TEST_DIR)/, \
+		$(TEST_DIR_NAMES)), $(subdirs)/*.log)
+
+PRODUCTNAME=cslib
+TARGETLIBNAME = lib$(PRODUCTNAME)-$(VER).$(LIB_SUFFIX)
+TARGETSLIBNAME = lib$(PRODUCTNAME)-$(VER).$(SLIB_SUFFIX)
+
+# generic build rules
+$(CSLIB_DIRS)::
+	@echo
+	@echo Preparing to make '$(patsubst %_test,%,${MAKECMDGOALS})' in $(dir $(@))
+	$(MAKE) -C $(dir $(@)) $(patsubst %_test,%,${MAKECMDGOALS}) $(MAKE_FLAGS)
+
+$(TEST_DIRS)::
+	@echo
+	@echo Preparing to make '$(patsubst %_test,%,${MAKECMDGOALS})' in $(dir $(@))
+	$(MAKE) -C $(dir $(@)) $(patsubst %_test,%,${MAKECMDGOALS}) $(MAKE_FLAGS)
+
+# main rules
+all:: lib dylib
+
+lib :: ${CSLIB_LIB_DIR}/${TARGETLIBNAME}
+
+dylib :: ${CSLIB_LIB_DIR}/${TARGETSLIBNAME}
+
+test:: $(TEST_DIRS)
+
+compile:: Prepare_r $(CSLIB_DIRS)
+
+${CSLIB_LIB_DIR}/${TARGETLIBNAME}:: compile
+	@echo
+	@echo Building ${TARGETLIBNAME}
+	${CD} $(CSLIB_OBJ_DIR)
+	$(MAKELIB) $@ $(wildcard $(CSLIB_OBJ_DIR)/*.o)
+
+${CSLIB_LIB_DIR}/${TARGETSLIBNAME}:: compile
+	@echo
+	@echo Building ${TARGETSLIBNAME}
+	${CD} $(CSLIB_OBJ_DIR)
+	$(MAKESLIB) -o $@ $(wildcard $(CSLIB_OBJ_DIR)/*.o) ${ALLLIBS}
+
+# preprocessing rules
+Prepare_r::
+	@echo
+	@echo Preparing the directory structure for a build ...
+	-${MKDIR} -p ${CSLIB_LIB_DIR}
+	-${MKDIR} -p ${CSLIB_OBJ_DIR}
+	-${MKDIR} -p ${DIST_LIB_DIR}
+	-${MKDIR} -p ${DIST_HEADER_DIR}
+
+clean:: $(CSLIB_DIRS)
+	$(RM) -f ${CSLIB_PROJECT_LOCAL}/*~ ${CSLIB_PROJECT_LOCAL}/core
+	$(RM) -rf ${DIST_TARGET_DIR} ${SRC_OBJ_DIR} ${SRC_LIB_DIR}
+
+clean_junk::
+	$(RM) -f ${CSLIB_PROJECT_LOCAL}/Makefile ${CSLIB_PROJECT_LOCAL}/Makefile.bak
+	${RM} -f ${CSLIB_MAKEFILES} ./build/Makefile.incl ./build/Makefile.test.incl ./build/config.log ./build/config.status ./build/configure ./build/config.h ./build/config.h.in
+	${RM} -rf ./build/autom4te
+
+clean_test:: $(TEST_DIRS)
+	${RM} -rf ${TEST_BINDIRS} ${TEST_OBJDIRS}
+
+clean_test_junk::
+	${RM} -f ${TEST_MAKEFILES} ${TEST_LOGFILES}
+
+# make the dependencies
+
+depend:: $(CSLIB_DIRS)
+
+depend_test:: $(TEST_DIRS)
+
+dist:: Prepare_r $(CSLIB_DIRS)
+	@echo Copying files over ...
+	$(CP) ${CSLIB_LIB_DIR}/${TARGETLIBNAME} ${DIST_LIB_DIR}
+	$(CD) ${DIST_LIB_DIR}; ln -sf ${TARGETLIBNAME} lib$(PRODUCTNAME).$(LIB_SUFFIX)
+	$(CP) ${CSLIB_LIB_DIR}/${TARGETSLIBNAME} ${DIST_LIB_DIR}
+	$(CD) ${DIST_LIB_DIR}; ln -sf ${TARGETSLIBNAME} lib$(PRODUCTNAME).$(SLIB_SUFFIX)

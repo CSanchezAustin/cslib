@@ -1,0 +1,15 @@
+﻿Build started 1/19/2010 8:24:01 AM.
+     1>Project "F:\chriss\src\cslib-working\vc10\cslib.vcxproj" on node 1 (build target(s)).
+     1>_PrepareForBuild:
+         Touching ".\..\obj\vc10\X64dbg\cslib.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\x86_amd64\CL.exe /c /I"F:\tools\xerces-c-3.0.1\src\include" /I..\h /ZI /nologo /W3 /WX- /Od /Oy- /D _DEBUG /D NOMINMAX /D WIN64 /D _WINDOWS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"cslib.h" /Fp".\..\obj\vc10\X64dbg\cslib.pch" /Fo".\..\obj\vc10\X64dbg\\" /Fd".\..\obj\vc10\X64dbg\vc100.pdb" /FR".\..\obj\vc10\X64dbg\\" /Gd /TP /analyze- /errorReport:prompt ..\src\fwk\fwkBootstrap.cpp
+     1>cl : Command line warning D9038: /ZI is not supported on this platform; enabling /Zi instead
+         fwkBootstrap.cpp
+     1>..\h\xml/XmlStXmlOpener.h(57): fatal error C1083: Cannot open include file: 'xercesc/util/PlatformUtils.hpp': No such file or directory
+     1>Done Building Project "F:\chriss\src\cslib-working\vc10\cslib.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.03

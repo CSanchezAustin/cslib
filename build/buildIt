@@ -1,0 +1,18 @@
+#!/bin/sh
+#first - build the headers
+autoheader
+
+#next build the configuration
+autoconf
+
+#next configure
+./runConfigure -m dbg
+
+# build the code
+cd ..
+make depend
+make all
+make dist
+make depend_test
+make test
+

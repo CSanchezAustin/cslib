@@ -1,0 +1,50 @@
+<?xml version = '1.0'?>
+<?component-loader name='thread-pool' cfg='threads' ?>
+<?component-loader name='std-logger' cfg='logger' ?>
+<?component-loader name='sys-counter' cfg='counter' ?>
+<?component-loader name='thread-scheduler' cfg='threadsched' ?>
+<?component-loader name='rpc-server' cfg='rpc' ?>
+<?component-loader name='sys-paths' cfg='paths' ?>
+<?component-loader name='ser-mgr' ?>
+
+<cfg id="manpower">
+    <paths root="c:\temp\calebtech">
+        <path tag="$tmp_dir">$root\tmp</path>
+        <path tag="$cache_dir">cache</path>
+        <path tag="$session_dir">$cache_dir\sessions</path>
+        <path tag="$cfg_dir">cfg</path>
+        <path tag="$log_dir">logs</path>
+    </paths>
+	<logger>
+		<level>65535</level>
+		<format>$0$-$1$ ($3$:$2$) $5$:$4$
+</format>
+		<stderr>false</stderr>
+		<stdout>false</stdout>
+        <impl name="std-file-logger">
+            <log-level>65535</log-level>
+            <log-file>$log_dir\csliblog.txt</log-file>
+        </impl>
+	</logger>
+    <counter>
+        <counter name="xerces">10329</counter>
+        <counter name="apache">1</counter>
+        <counter name="caleb">1</counter>
+        <counter name="cslib">1002</counter>
+    </counter>
+    <threads>
+        <max-size>4</max-size>
+    </threads>
+	<threadsched>
+		<max-threads>4</max-threads>
+	</threadsched>
+	<rpc>
+		<workers>2</workers>
+		<transports>
+			<transport name="rpc-http">
+				<client-retries timeout="1000">5</client-retries>
+				<server-port listeners="5">8080</server-port>
+			</transport>
+		</transports>
+	</rpc>
+</cfg>

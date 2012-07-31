@@ -1,0 +1,7 @@
+<?xml version = '1.0'?>
+<sys-counter>
+    <counter name="xerces">10329</counter>
+    <counter name="apache">1</counter>
+    <counter name="caleb">1</counter>
+    <counter name="csilb">1002</counter>
+</sys-counter>

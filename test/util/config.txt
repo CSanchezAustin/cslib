@@ -1,0 +1,17 @@
+## this is a test config file
+firstParameter:   Testing
+
+number2                 :   the second value
+
+
+# another comment
+
+two_colons: :two colons value
+
+   # the comment
+
+key without value:
+
+: value without key
+
+:

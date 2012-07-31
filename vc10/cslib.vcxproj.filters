@@ -1,0 +1,696 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="h">
+      <UniqueIdentifier>{1d4a245a-0c7a-4b9b-9f53-14e84f778095}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\core">
+      <UniqueIdentifier>{bf2000ec-c93b-4245-9e24-e99dfcb48944}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\file">
+      <UniqueIdentifier>{d63bc6e8-1d98-4b51-9c75-6a7ef9c4c81d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\fwk">
+      <UniqueIdentifier>{bf92600a-d80a-454c-b585-ebd672716fc7}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\lang">
+      <UniqueIdentifier>{4aab07eb-d4a6-412a-9408-d7858dfc3647}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\log">
+      <UniqueIdentifier>{744023a7-d5d3-4052-9b47-9a33c6f0e6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\log\nt">
+      <UniqueIdentifier>{330dd116-756b-477f-87bc-a87bdd39bfcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\net">
+      <UniqueIdentifier>{29744915-35cf-45eb-a4fe-fa94f570b0e5}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\pat">
+      <UniqueIdentifier>{c4608c6c-7a57-456f-a4b7-b2952e60eef5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\rpc">
+      <UniqueIdentifier>{d7ae30a5-74d4-4442-b029-ff9a7513799b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\rpc\http">
+      <UniqueIdentifier>{c81755eb-fd1b-4687-bb62-22e715c853e5}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\ser">
+      <UniqueIdentifier>{2731daf0-c44e-4fb7-8f39-518fc9a1d08f}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\svr">
+      <UniqueIdentifier>{4222e186-7446-4c50-a2aa-9c7e4afcda42}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="h\svr\nt">
+      <UniqueIdentifier>{0aba9790-fe4a-4258-b83c-148a35a1c8d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\sys">
+      <UniqueIdentifier>{7645774a-ed29-4a88-93f2-13f7937ff9ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\thd">
+      <UniqueIdentifier>{59f8af2a-39e1-46d0-881c-bd99892bc286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\util">
+      <UniqueIdentifier>{ef03598f-4d59-46dc-b9b9-3faeb05f119e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="h\xml">
+      <UniqueIdentifier>{122e8a30-da2d-45b9-9d27-85d8b1f8ad65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{b58366a5-5afa-4b36-a08e-1f2bfcd29870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\core">
+      <UniqueIdentifier>{a6437fd3-7501-451c-97b4-3159aba806e1}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\file">
+      <UniqueIdentifier>{29dc6f59-1ca7-4cfd-9197-c6f7a4df721f}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\fwk">
+      <UniqueIdentifier>{98d3929b-440d-4319-b201-319aed281455}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\internal">
+      <UniqueIdentifier>{059e43c1-433a-4a60-a206-9f0621fcb4cf}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+    <Filter Include="src\lang">
+      <UniqueIdentifier>{52b82b5b-b9f7-4c09-ac32-e9b9dc118098}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\log">
+      <UniqueIdentifier>{ba3138f9-4679-4eb8-84fa-1e09fe0e7fc3}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\log\nt">
+      <UniqueIdentifier>{46f60791-f0ff-4967-85b3-44fe2915a81f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net">
+      <UniqueIdentifier>{f34cf030-4979-4ab3-848c-67b08c4d1f33}</UniqueIdentifier>
+      <Extensions>cpp</Extensions>
+    </Filter>
+    <Filter Include="src\rpc">
+      <UniqueIdentifier>{f5e556dd-b9bd-429a-932f-9f14a792489f}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\rpc\http">
+      <UniqueIdentifier>{08125d39-66b4-4a8d-a8db-82429b9002e7}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\ser">
+      <UniqueIdentifier>{8a684860-0e26-46a2-b4db-43a750446f09}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\svr">
+      <UniqueIdentifier>{3126f101-e331-4c3b-8e47-b826fbe81562}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\svr\nt">
+      <UniqueIdentifier>{1ceea233-16cf-4e00-a1d5-7a3c48602929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sys">
+      <UniqueIdentifier>{12b20137-ca89-485c-a29c-3cc4b6b1893c}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\thd">
+      <UniqueIdentifier>{e0f29ae5-472d-4ab1-ad0e-05b8beb3e35b}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{5df7b5bf-59af-444d-9209-6fa997ec53e9}</UniqueIdentifier>
+      <Extensions>*.cpp</Extensions>
+    </Filter>
+    <Filter Include="src\xml">
+      <UniqueIdentifier>{9ed86a28-ad56-4c6c-9efc-9411105cc671}</UniqueIdentifier>
+      <Extensions>*.xml</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\h\core\Assert.h">
+      <Filter>h\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\core\Debug.h">
+      <Filter>h\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\core\HandleObject.h">
+      <Filter>h\core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\cslib.h">
+      <Filter>h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\file\FileAttributes.h">
+      <Filter>h\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\file\FileIterator.h">
+      <Filter>h\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\file\FileIteratorImp.h">
+      <Filter>h\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\file\FileIterImpWin32.h">
+      <Filter>h\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\file\FileUtils.h">
+      <Filter>h\file</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\fwk\fwkBootstrap.h">
+      <Filter>h\fwk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\fwk\fwkConduit.h">
+      <Filter>h\fwk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\fwk\ifwkConduitListener.h">
+      <Filter>h\fwk</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\lang\Date.h">
+      <Filter>h\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\lang\InterLockedLong.h">
+      <Filter>h\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\lang\ScheduleTime.h">
+      <Filter>h\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\lang\String.h">
+      <Filter>h\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\iLoggerImpl.h">
+      <Filter>h\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\LogImplementationFactory.h">
+      <Filter>h\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\LogStdFileImpl.h">
+      <Filter>h\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\LogStdFormatter.h">
+      <Filter>h\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\LogStdLogger.h">
+      <Filter>h\log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\nt\EventLog.h">
+      <Filter>h\log\nt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\log\nt\LogNTEventLogImpl.h">
+      <Filter>h\log\nt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\Net.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetHttpClientPost.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetHttpContent.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetHttpSerPost.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetHttpUtils.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetListenerSocket.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\net\NetSocket.h">
+      <Filter>h\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\pat\PatComparable.h">
+      <Filter>h\pat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\pat\PatDebuggable.h">
+      <Filter>h\pat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\pat\PatRunnable.h">
+      <Filter>h\pat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\pat\PatSchedulable.h">
+      <Filter>h\pat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\pat\PatSerializable.h">
+      <Filter>h\pat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\http\RpcHttpAuthenticator.h">
+      <Filter>h\rpc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\http\RpcHttpTransport.h">
+      <Filter>h\rpc\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\iRpcAuthenticator.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\iRpcMethod.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\iRpcServer.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\iRpcTransport.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcAddress.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcAuthenticatorFactory.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcDispatcher.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcErrorHandler.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcInterface.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcMessage.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcServer.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcTransportFactory.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\rpc\RpcTypes.h">
+      <Filter>h\rpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\iSerInputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\iSerOutputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerCounters.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerFileInputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerFileOutputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerInputters.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerMemInputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerMemOutputSource.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerOutputters.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerSerializationMgr.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerStdLib.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\ser\SerUtils.h">
+      <Filter>h\ser</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\svr\iSvrService.h">
+      <Filter>h\svr</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\svr\nt\CService.h">
+      <Filter>h\svr\nt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\svr\nt\CServiceInstall.h">
+      <Filter>h\svr\nt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\svr\nt\NTServiceMain.h">
+      <Filter>h\svr\nt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\iSysComponent.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysComInitializer.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysComponentFactory.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysComponentLoader.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysContext.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysCounterMgr.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysManager.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysObjectFactory.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysObjectFactoryInlines.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysPathMgr.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysSecurity.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysSecurityAttributes.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\sys\SysSecurityDescriptor.h">
+      <Filter>h\sys</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdAutoLock.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdCriticalSection.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdDeque.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdEvent.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdManager.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdMutex.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdPool.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdQueue.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdRunner.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdRWLock.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdScheduler.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdSemaphore.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdSyncObject.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdThread.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdTypes.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\thd\ThdWaitableTimer.h">
+      <Filter>h\thd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilAutoPtr.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilAutoPtrInlines.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilDllLoader.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilHeap.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilHeapInlines.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilMapping.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilPattern.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilRefCounted.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilRefCountedPtr.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilRefCountedPtrInlines.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilStreaming.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilStringTokenizer.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilStringUtils.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\xml\XmlDomUtils.h">
+      <Filter>h\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\xml\XmlStreamFormatTarget.h">
+      <Filter>h\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\xml\XmlStringFormatTarget.h">
+      <Filter>h\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\xml\XmlStXmlOpener.h">
+      <Filter>h\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\internal\XmlDomUtilsInternal.h">
+      <Filter>src\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\h\util\UtilTokenFormatter.h">
+      <Filter>h\util</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\core\Debug.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\core\HandleObject.cpp">
+      <Filter>src\core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\cslib.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\file\FileAttributes.cpp">
+      <Filter>src\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\file\FileIterator.cpp">
+      <Filter>src\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\file\FileIteratorImp.cpp">
+      <Filter>src\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\file\FileIterImpWin32.cpp">
+      <Filter>src\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\file\FileUtils.cpp">
+      <Filter>src\file</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\fwk\fwkBootstrap.cpp">
+      <Filter>src\fwk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lang\Date.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lang\ScheduleTime.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lang\String.cpp">
+      <Filter>src\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\LogImplementationFactory.cpp">
+      <Filter>src\log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\LogStdFileImpl.cpp">
+      <Filter>src\log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\LogStdFormatter.cpp">
+      <Filter>src\log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\LogStdLogger.cpp">
+      <Filter>src\log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\nt\EventLog.cpp">
+      <Filter>src\log\nt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\log\nt\LogNTEventLogImpl.cpp">
+      <Filter>src\log\nt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\Net.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetHttpClientPost.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetHttpContent.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetHttpSerPost.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetHttpUtils.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetListenerSocket.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\net\NetSocket.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\http\RpcHttpAuthenticator.cpp">
+      <Filter>src\rpc\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\http\RpcHttpTransport.cpp">
+      <Filter>src\rpc\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcAuthenticatorFactory.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcDispatcher.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcInterface.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcMessage.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcServer.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rpc\RpcTransportFactory.cpp">
+      <Filter>src\rpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ser\SerFileInputSource.cpp">
+      <Filter>src\ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ser\SerFileOutputSource.cpp">
+      <Filter>src\ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ser\SerMemInputSource.cpp">
+      <Filter>src\ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ser\SerMemOutputSource.cpp">
+      <Filter>src\ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ser\SerSerializationMgr.cpp">
+      <Filter>src\ser</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\svr\nt\CService.cpp">
+      <Filter>src\svr\nt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\svr\nt\CServiceInstall.cpp">
+      <Filter>src\svr\nt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\svr\nt\NTServiceMain.cpp">
+      <Filter>src\svr\nt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysComInitializer.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysComponentFactory.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysComponentLoader.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysContext.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysCounterMgr.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysManager.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysPathMgr.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysSecurity.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysSecurityAttributes.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sys\SysSecurityDescriptor.cpp">
+      <Filter>src\sys</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdCriticalSection.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdEvent.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdManager.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdMutex.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdPool.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdQueue.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdRWLock.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdScheduler.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdSemaphore.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdSyncObject.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdThread.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\thd\ThdWaitableTimer.cpp">
+      <Filter>src\thd</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilDllLoader.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilMapping.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilPattern.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilStreaming.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilStringUtils.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\xml\XmlDomUtils.cpp">
+      <Filter>src\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\util\UtilTokenFormatter.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="cslib.rc" />
+  </ItemGroup>
+</Project>

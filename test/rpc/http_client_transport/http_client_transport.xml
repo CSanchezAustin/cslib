@@ -1,0 +1,7 @@
+<?xml version = '1.0'?>
+<transports>
+	<transport name="rpc-http">
+		<client-retries timeout="1000">5</client-retries>
+		<server-port listeners="5">8888</server-port>
+	</transport>
+</transports>

@@ -1,0 +1,16 @@
+# Microsoft Developer Studio Generated Dependency File, included by CslibMsg.mak
+
+!IF  "$(CFG)" == "CslibMsg - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "CslibMsg - Win32 Debug"
+
+!ENDIF 
+
+..\src\log\nt\CslibMsgr.c : \
+	"c:\program files\microsoft visual studio\vc98\include\basetsd.h"\
+	
+
+..\src\log\nt\Version.rc : \
+	"..\src\log\nt\CslibMsg.rc"\
+	"..\src\log\nt\MSG00409.bin"\
+	
