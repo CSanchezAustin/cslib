@@ -1,5 +1,3 @@
-2001-11-06 Cs
-
 Overview:
 The following source code provides libraries for some common programming
 tasks. The following is a list of utility interfaces.
