@@ -68,8 +68,6 @@
 #include <net/Net.h>
 #include <util/UtilStringUtils.h>
 
-static const int BUFF_SIZE = 1024 * 8;
-
 Socket::Socket()
 {
     m_sock = -1;
@@ -267,7 +265,7 @@ Socket::read(
         return -1;
     }
 
-    std::auto_ptr<char> sockbuff(new char[ BUFF_SIZE + 1 ]);
+    AUTO_PTR(char) sockbuff(new char[ BUFF_SIZE + 1 ]);
 
     int totalRead = 0;
     int bytesToRead = sz;

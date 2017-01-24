@@ -51,8 +51,8 @@
 //              $Author: $
 //              $Date: $
 //
-//      Contents:	
-//	
+//      Contents:   
+//  
 #if defined(_WINDOWS) || defined(WIN32)
 #pragma warning(disable:4786)
 #pragma warning(disable:4503)
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 
     test_client();
 
-	return 0;
+    return 0;
 }
 
 
@@ -152,34 +152,33 @@ void test_client()
         RefCountedPtr<SysContext> ctx = SysComponentLoader::createComponentContext( doc );
         if ( ctx != NULL )
         {
-	  RefCountedPtr<RpcServer> pServer;
-	  REFCOUNTED_CAST(iSysComponent, RpcServer, ctx->getComponent( RpcServer::getRegistryName()), pServer);
+            RefCountedPtr<RpcServer> pServer;
+            REFCOUNTED_CAST(iSysComponent, RpcServer, ctx->getComponent( RpcServer::getRegistryName()), pServer);
             if ( pServer != NULL )
             {
-	            // create the interfaces that the rpc server will respond to.
+                // create the interfaces that the rpc server will respond to.
                 RefCountedPtr<RpcInterface> intf1( new RpcInterface( NTEXT("rpc-object1"), ctx ));
                 RefCountedPtr<Object1Method1> method1( new Object1Method1 );
                 intf1->addMethod( (RefCountedPtr<iRpcMethod>&)method1 );
-    	        pServer->addInterface( intf1 );
+                pServer->addInterface( intf1 );
 
                 COUT << NTEXT("Server is running") << std::endl;
 
                 DOMDocument* clientDoc = DomUtils::getDocument( NTEXT("rpc_client.xml") );
                 if ( clientDoc != NULL )
                 {
-				    while( _kbhit() == 0 )
-				    {
-	                    COUT << NTEXT("Sending client request") << std::endl;
+                    while( _kbhit() == 0 )
+                    {
+                        COUT << NTEXT("Sending client request") << std::endl;
 
-					    // send the request
-					    DOMNode* responseNode = NULL;
-					    RpcAddress address( NTEXT("rpc-http://localhost:8080") );
-					    enumRpcCallResult callResult = 
-                                    pServer->sendRequest( clientDoc->getDocumentElement(), 
-														NTEXT("rpc-object1"), NTEXT("object1-method1"), 
-														address, responseNode );
-				    }
-				    delete clientDoc;
+                        // send the request
+                        DOMNode* responseNode = NULL;
+                        RpcAddress address( NTEXT("rpc-http://localhost:8080") );
+                        pServer->sendRequest( clientDoc->getDocumentElement(), 
+                                                NTEXT("rpc-object1"), NTEXT("object1-method1"), 
+                                                address, responseNode );
+                    }
+                    delete clientDoc;
                 }
                 else
                 {
@@ -187,7 +186,7 @@ void test_client()
                 }
             }
         }
-	delete doc;
+    delete doc;
     }
     else
     {

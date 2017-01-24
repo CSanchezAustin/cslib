@@ -64,7 +64,7 @@
 #include "fwk/ifwkConduitListener.h"
 #include "fwk/fwkConduit.h"
 
-typedef enum enumMyEventTypes
+enum enumMyEventTypes
 {
     keTest1 = 1,
     keTest2 = 2

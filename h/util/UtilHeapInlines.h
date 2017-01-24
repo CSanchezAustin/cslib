@@ -68,9 +68,6 @@
 // ]
 
 #include <algorithm>
-#ifdef __GNUG__
-#include <bits/stl_heap.h>
-#endif
 
 #ifdef _DEBUG
     #include <iostream>
@@ -345,11 +342,7 @@ check_heap()
 			it++;
 		}
 
-#ifdef __GNUG__
-		return __is_heap( testVector.begin(), testVector.end(), _less );
-#else
 		return is_heap( testVector.begin(), testVector.end(), _less );
-#endif
 	}
 
 	return true;

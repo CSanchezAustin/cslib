@@ -89,12 +89,12 @@ namespace EXPORT_DLL StringUtils
     long toLong(const String& str);
 
     String toString(const ScheduleTime &time, const int radix = 10);
-	std::auto_ptr<char> toCString(const ScheduleTime &time, const int radix = 10);
+	AUTO_PTR(char) toCString(const ScheduleTime &time, const int radix = 10);
     ScheduleTime toScheduleTime(const String& str);    
 
     String toString(const char *inStr, const enumCodePage cp = keAnsi);
     String toString(const wchar_t *inStr, const enumCodePage cp = keAnsi);
-    std::auto_ptr<char> toCString(const String &inStr, const enumCodePage cp = keAnsi);
+    AUTO_PTR(char) toCString(const String &inStr, const enumCodePage cp = keAnsi);
 
     String toString( const Date& inDate );
     Date toDate( const String& inStr );

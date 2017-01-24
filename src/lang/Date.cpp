@@ -36,6 +36,7 @@
 unsigned int   	Date::_startDST=((Date::APRIL<<8) + 1);
 unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 
+
 	
 
 //#if !defined(_INC_WINDOWS)	// if this is NOT a windows program
@@ -52,7 +53,6 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char *mname[] = {"Januar","Februar","Marz","April","Mai",
 				   	"Juni","Juli","August","September","Oktober","November",
 					"Dezember"};
-#endif
 		static const char	szInvalidDay[] 		= "Invalide Tag";
 		static const char	szInvalidDate[] 	= "Invalide Datum";
 		static const char	szInvalidMonth[]	= "Invalide Monat";
@@ -60,6 +60,7 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char	szYears[]			= "Jahre";
 		static const char	szMonths[]			= "Monate";
 		static const char	szDays[]			= "Daten";
+#endif
 
 #elif defined(_ESPANOL)  //------------------------------------------------------------------
 
@@ -71,7 +72,6 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char *mname[] = {"Enero","Febrero","Marzo","Abril",
 					"Mayo","Junio","Julio","Agosto","Septiembre","Octubre",
 					"Noviembre","Diciembre"};
-#endif
 		static const char	szInvalidDay[] 		= "Invalido dia";
 		static const char	szInvalidDate[] 	= "Invalido data";
 		static const char	szInvalidMonth[]	= "Invalido mes";
@@ -79,6 +79,7 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char	szYears[]			= "anos";
 		static const char	szMonths[]			= "mes";
 		static const char	szDays[]			= "dia";
+#endif
 
 #elif defined (_FRANCAIS)
 
@@ -89,7 +90,6 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char *mname[] = {"Janvier","Fevrier","Mars","Avril",
 					"Mai","Juin","Juillet","Aout","Septembre","Octobre",
 					"Novembre","Decembre"};
-#endif
 		static const char	szInvalidDay[] 		= "invalide jour";
 		static const char	szInvalidDate[] 	= "invalide date";
 		static const char	szInvalidMonth[]	= "invalide mois";
@@ -97,6 +97,7 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char	szYears[]			= "annee";
 		static const char	szMonths[]			= "mois";
 		static const char	szDays[]			= "journee";
+#endif
 
 
 #else   // ENGLISH
@@ -111,7 +112,7 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char *mname[] = {"January","February","March","April",
 					"May","June","July","August","September","October",
 					"November","December"};
-#endif
+
 		static const char	szInvalidDay[] 		= "invalid day";
 		static const char	szInvalidDate[] 	= "invalid date";
 		static const char	szInvalidMonth[]	= "invalid month";
@@ -119,6 +120,7 @@ unsigned int   	Date::_startSTD=((Date::OCTOBER<<8) + 31);
 		static const char	szYears[]			= "years";
 		static const char	szMonths[]			= "months";
 		static const char	szDays[]			= "days";
+#endif
 
 #endif
 							// -----------------------------------------------------------------
@@ -477,7 +479,7 @@ int Date::dayOfYear( void ) const
 int Date::isLeapYear( void ) const
 {
 	return  ( (_year >= 1582) ?
-			  (_year % 4 == 0  &&  _year % 100 != 0  ||  _year % 400 == 0 ):
+			  (((_year % 4 == 0)  &&  (_year % 100 != 0))  ||  (_year % 400 == 0) ):
 			  (_year % 4 == 0) );
 }
 

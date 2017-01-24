@@ -78,7 +78,7 @@ usage()
     echo "Usage: runConfigure \"options\""
     echo "       where options may be any of the following:"
     echo "       -p <platform> (accepts 'linux', 'solaris')"
-    echo "       -c <C compiler type> (accepts 'gnu' or 'sun')"
+    echo "       -c <C compiler type> (accepts 'gnu' or 'sun', 'gnu6')"
     echo "       -m specifies the build mode (accepts 'dbg' or 'rel')"
     echo "       -b directory of the C/C++ compilers if they are not in the search path"
     echo "       -l <extra linker options>"
@@ -149,7 +149,7 @@ while [ $# -gt 0 ]
         libs="$libs $2"; shift 2;;
 
    -I)
-        includes="$includes $2"; shift 2;;
+        includes="$includes -I$2"; shift 2;;
 
    -l)
         linkeroptions="$linkeroptions $2"; shift 2;;
@@ -192,6 +192,10 @@ esac
 # Process the compiler option
 #
 case $compiler in
+   gnu6)
+      ccompiler="gcc-6"
+      cppcompiler="g++-6"
+      ;;
    gnu)
       ccompiler="gcc"
       cppcompiler="g++"

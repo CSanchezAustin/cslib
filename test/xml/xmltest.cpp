@@ -54,7 +54,9 @@
 //      Contents:	
 //	
 
-#pragma warning(disable: 4786)
+#if defined(_WINDOWS) || defined(WIN32)
+#pragma warning(disable:4786)
+#endif
 
 #include <fstream>
 
@@ -140,17 +142,15 @@ test_domutil()
     // test get node value
 
     String strValue;
-    bool res = DomUtils::getNodeValue( elem, &strValue, &attrs );
+    DomUtils::getNodeValue( elem, &strValue, &attrs );
 
     // test set node value
     strValue = NTEXT("William Santiago");
     attrs[ NTEXT("id_id") ] = NTEXT("WWWW_22222");
-    res = DomUtils::setNodeValue( elem, &strValue, &attrs );
+    DomUtils::setNodeValue( elem, &strValue, &attrs );
 
     // look at the output again
     DomUtils::print( doc, NTEXT("UTF-8"), targ );
-
-    DOMText* textNode = DomUtils::getTextNode( elem );
 
     // test findNodeByAttribute
     DOMNodeList* theNodes = rootElem->getChildNodes();
@@ -162,16 +162,15 @@ test_domutil()
     {
         // change the name again
         strValue = NTEXT("William Santiago III");
-        res = DomUtils::setNodeValue( elem, &strValue );
+        DomUtils::setNodeValue( elem, &strValue );
         DomUtils::print( doc, NTEXT("UTF-8"), targ );
     }
 
     // test findNodesByAttribute
     std::vector< DOMNode* > vect;
     theNodes = rootElem->getChildNodes();
-    size_t numNodes = DomUtils::findNodesByAttribute(
-        theNodes,
-        NTEXT("id"), NTEXT("909090"), vect );
+    DomUtils::findNodesByAttribute( theNodes,
+                                    NTEXT("id"), NTEXT("909090"), vect );
     for ( std::vector< DOMNode* >::const_iterator it = vect.begin();
           it != vect.end(); it++ )
     {

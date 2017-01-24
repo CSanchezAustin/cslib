@@ -90,8 +90,6 @@
 class StdLogger;
 class SysPathMgr;
 class iSerializable;
-class iSerOutputSource;
-class iSerInputSource;
 
 class EXPORT_DLL SerSerializationMgr : public iSysComponent
 {
@@ -122,14 +120,14 @@ public:
        serialize
        write out theWorld object to the given output source
      */
-    int serialize( iSerializable& theWorld, iSerOutputSource& theSource );
+    int serialize( iSerializable& theWorld, std::ostream& out );
 
 
     /**
        deserialize
        read in the  theWorld object from the given input source
      */
-    int deserialize( iSerializable& theWorld, iSerInputSource& theSource );
+    int deserialize( iSerializable& theWorld, std::istream& in );
 
 
     /**

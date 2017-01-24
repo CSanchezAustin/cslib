@@ -346,9 +346,9 @@ test_mapping(const int argc, const char* argv[])
     Mapping mp3(in);
     COUT << mp3.toString().c_str() << std::endl;
 
-    int cnt = mp3.merge(mp2);
+    mp3.merge(mp2);
     String itsValue;
-    bool res = mp3.getIfAvailable(NTEXT("number2"), itsValue);
+    mp3.getIfAvailable(NTEXT("number2"), itsValue);
 	{
 	COUT << NTEXT("test with section delimiters\n");
     String delims =  NTEXT("cslib-en cslib-fr");
@@ -452,7 +452,7 @@ void test_dllloader()
     mod = (GETMODULEVERSION) sample2.getFacility(NTEXT("getModuleVersion"));
     if (mod != NULL)
     {
-      int i = (*mod) ();
+      (*mod) ();
     }
 }
 
