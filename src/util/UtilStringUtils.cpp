@@ -194,13 +194,13 @@ StringUtils::toScheduleTime(
 }
 
 
-AUTO_PTR(char)
+std::unique_ptr<char>
 StringUtils::toCString(
             const String &inStr, 
             const enumCodePage cp )
 {
 #ifndef UNICODE
-  return AUTO_PTR(char)(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
+  return std::unique_ptr<char>(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
 #else
 #if defined(_WINDOWS) || defined(WIN32)
 
@@ -220,7 +220,7 @@ StringUtils::toCString(
                                 transcoded, sz, NULL, NULL );
             if (sz != 0)
             {
-                return AUTO_PTR(char)(transcoded);
+                return std::unique_ptr<char>(transcoded);
             }
             else
             {
@@ -237,7 +237,7 @@ StringUtils::toCString(
 			size_t sz = ::wcstombs( transcoded, inStr.c_str(), buffSize );
 			if (sz > 0)
 			{
-				return AUTO_PTR(char)(transcoded);
+				return std::unique_ptr<char>(transcoded);
 			}
 			else
 			{
@@ -246,7 +246,7 @@ StringUtils::toCString(
 		}
 #endif // WINDOWS
 
-		return AUTO_PTR(char)(NULL);
+		return std::unique_ptr<char>(NULL);
 
 #endif // UNICODE
 }

@@ -215,7 +215,7 @@ FileUtils::fileCopy(
 
     if ( input.good() && output.good() )
     {
-        AUTO_PTR(char) buff( new char[COPY_BUFF_SIZE] );
+        std::unique_ptr<char> buff( new char[COPY_BUFF_SIZE] );
         if ( buff.get() != NULL )
         {
             const char* pBuff = buff.get();
