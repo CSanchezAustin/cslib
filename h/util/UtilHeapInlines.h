@@ -76,7 +76,6 @@
 #include <util/UtilHeap.h>
 
 const int GROW_SIZE = 3;
-using namespace std;
 
 template <class Key, class Type, class  TypeCompare, class KeyCompare>
 inline Heap<Key, Type, TypeCompare, KeyCompare>::Heap()
@@ -342,7 +341,7 @@ check_heap()
 			it++;
 		}
 
-		return is_heap( testVector.begin(), testVector.end(), _less );
+		return std::__is_heap( testVector.begin(), testVector.end(), _less );
 	}
 
 	return true;
