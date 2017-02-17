@@ -265,7 +265,7 @@ Socket::read(
         return -1;
     }
 
-    std::unique_ptr<char> sockbuff(new char[ BUFF_SIZE + 1 ]);
+    AUTO_PTR(char) sockbuff(new char[ BUFF_SIZE + 1 ]);
 
     int totalRead = 0;
     int bytesToRead = sz;

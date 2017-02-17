@@ -194,13 +194,13 @@ StringUtils::toScheduleTime(
 }
 
 
-std::unique_ptr<char>
+AUTO_PTR(char)
 StringUtils::toCString(
             const String &inStr, 
             const enumCodePage cp )
 {
 #ifndef UNICODE
-  return std::unique_ptr<char>(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
+  return AUTO_PTR(char)(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
 #else
 #if defined(_WINDOWS) || defined(WIN32)
 
