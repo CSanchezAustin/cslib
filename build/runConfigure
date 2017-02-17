@@ -118,7 +118,7 @@ platform=macosx         # linux is the default paltform
 compiler=gnu            # gnu compiler us the default
 mode=dbg                # default mode is debug
 
-xerceshome=/usr/include/xercesc
+xerceshome=/usr/local
 xercesname=xerces-c
 
 linkeroptions=""        # other settings
