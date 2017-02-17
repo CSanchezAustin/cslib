@@ -251,8 +251,8 @@ inline T _AtomicDecrement(T* x)
 #include "core/Debug.h"
 #include "core/Assert.h"
 
-#if __cplusplus >= 201103L
 #include <memory>
+#if __cplusplus >= 201103L
 #   define AUTO_PTR( T ) std::unique_ptr<T>
 #else
 #   define AUTO_PTR( T ) std::auto_ptr<T>
