@@ -182,10 +182,10 @@ LDFLAGS += \
 	-L${CSLIB_DIST_LIB_DIR}
 
 ALLLIBS += \
-	-lpthread \
-	-ldl \
-	-l$(CSLIB_TARGETLIBNAME) \
-	-l$(XERCESNAME)
+	-l$(CSLIB_TARGETLIBNAME)    \
+	-l$(XERCESNAME)             \
+	-lpthread                   \
+	-ldl
 
 ###################### STANDARD TOOLS #############################
 DEPFILE = .depends
