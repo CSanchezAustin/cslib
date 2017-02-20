@@ -68,7 +68,7 @@
 #   LDFLAGS
 #   LIBS
 #   INCLUDES
-#   XERCESHOME
+#   XERCES_INCLUDES_HOME
 #   XERCESNAME
 #
 
@@ -84,8 +84,8 @@ usage()
     echo "       -l <extra linker options>"
     echo "       -L specifies additional include paths  (e.g. xercesc, STL port, etc..)"
     echo "       -L specifies additional libraries (e.g. xerces-c1_4, pthread, etc..)"
-    echo "       -x Xerces home"
-    echo "       -X Xerces name"
+    echo "       -x Path to xerces include directory"
+    echo "       -X Xerces library name"
     echo "       -z <extra compiler options>"
     echo "       -P <install-prefix>"
     echo "       -C <any one extra configure options>"
@@ -118,7 +118,7 @@ platform=macosx         # linux is the default paltform
 compiler=gnu            # gnu compiler us the default
 mode=dbg                # default mode is debug
 
-xerceshome=/usr/local
+xerces_includes_home=/usr/local/include/xercesc
 xercesname=xerces-c
 
 linkeroptions=""        # other settings
@@ -140,7 +140,7 @@ while [ $# -gt 0 ]
         mode=$2; shift 2;;
 
    -x)
-        xerceshome=$2; shift 2;;
+        xerces_includes_home=$2; shift 2;;
 
    -X)
         xercesname=$2; shift 2;;
@@ -259,8 +259,8 @@ export LIBS
 INCLUDES="$includes"
 export INCLUDES
 
-XERCESHOME="$xerceshome"
-export XERCESHOME
+XERCES_INCLUDES_HOME="$xerces_includes_home"
+export XERCES_INCLUDES_HOME
 
 XERCESNAME="$xercesname"
 export XERCESNAME
@@ -274,7 +274,7 @@ echo "C Compiler: ${CC}"
 echo "C++ Compiler: ${CXX}"
 echo "Mode: $mode"
 echo "Additional includes: $includes"
-echo "Xerces Home: $xerceshome"
+echo "Xerces Home: $xerces_includes_home"
 
 echo "Additional libs: $libs"
 echo "Extra compile options: $compileroptions"
@@ -297,7 +297,7 @@ echo export CXXFLAGS=\"$CXXFLAGS\"
 echo export LDFLAGS=\"$LDFLAGS\"
 echo export INCLUDES=\"$INCLUDES\"
 echo export LIBS=\"$LIBS\"
-echo export XERCESHOME=\"$XERCESHOME\"
+echo export XERCES_INCLUDES_HOME=\"$XERCES_INCLUDES_HOME\"
 echo export XERCESNAME=\"$XERCESNAME\"
 
 echo export CSLIB_PROJECT_LOCAL=\"$CSLIB_PROJECT_LOCAL\"

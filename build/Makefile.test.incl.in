@@ -91,7 +91,7 @@
 #INCLUDES=@includes@
 #MODE=@mode@
 
-XERCESHOME=@xerceshome@
+XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
 
@@ -114,7 +114,7 @@ MODULE_OBJ_DIR		= ${MODULE_BASE_DIR}/obj/$(PLATFORM)-$(MODE)
 
 # other settings
 TEST_INCL			= -I$(CSLIB_DIST_HEADER_DIR) -I$(MODULE_BASE_DIR)
-TEST_SYS_INCL			= $(INCLUDES) -I$(XERCESHOME)/include/xercesc
+TEST_SYS_INCL			= $(INCLUDES) -I$(XERCES_INCLUDES_HOME)
 TEST_DEF		  	  	= -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
 
 ####################### PLATFORM DEPENDENCIES #####################
@@ -176,7 +176,6 @@ endif
 
 #=============== Additional Libraries =========================
 LDFLAGS += \
-	-L${XERCESHOME}/lib \
 	-L${CSLIB_DIST_LIB_DIR}
 
 ALLLIBS += \

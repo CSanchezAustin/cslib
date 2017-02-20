@@ -6,7 +6,7 @@ autoheader
 autoconf
 
 #next configure
-./runConfigure -m dbg -I /usr/local/Cellar/nlohmann_json/2.0.10/include -x /usr/local/Cellar/xerces-c/3.1.4 -c gnu6 -z -std=gnu++11 # -z -Wextra
+./runConfigure -m dbg # -c gnu6 -z -std=gnu++11 # -z -Wextra
 #./runConfigure -m dbg -I /usr/local/Cellar/nlohmann_json/2.0.10/include -x /usr/local/Cellar/xerces-c/3.1.4
 
 # build the code

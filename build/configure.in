@@ -61,8 +61,8 @@ AC_SUBST(includes)
 mode=${MODE}
 AC_SUBST(mode)
 
-xerceshome=${XERCESHOME}
-AC_SUBST(xerceshome)
+xerces_includes_home=${XERCES_INCLUDES_HOME}
+AC_SUBST(xerces_includes_home)
 
 xercesname=${XERCESNAME}
 AC_SUBST(xercesname)

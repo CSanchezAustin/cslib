@@ -341,7 +341,7 @@ check_heap()
 			it++;
 		}
 
-		return std::__is_heap( testVector.begin(), testVector.end(), _less );
+		return std::is_heap( testVector.begin(), testVector.end(), _less );
 	}
 
 	return true;

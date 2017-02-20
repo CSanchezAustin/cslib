@@ -81,16 +81,7 @@
 #      Contents:	
 #
 
-#PLATFORM=@platform@
-#CC=@cc@
-#CXX=@cxx@
-#CXXFLAGS=@cxxflags@
-#LDFLAGS=@ldflags@
-#LIBS=@libs@
-#INCLUDES=@includes@
-#MODE=@mode@
-
-XERCESHOME=@xerceshome@
+XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
 
@@ -116,7 +107,7 @@ DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/@platform@/$(CXX)/$(MODE)
 
 # other defines
 CSLIB_INCL      = -I$(SRC_INC_DIR) -I$(SRC_SRC_DIR)/internal -I$(SRC_BUILD_DIR)
-CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCESHOME)/include
+CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCES_INCLUDES_HOME)
 CSLIB_DEF       = -D${PLATFORM} -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE -D__STL_USE_MALLOC
 
 ####################### PLATFORM DEPENDENCIES #####################
