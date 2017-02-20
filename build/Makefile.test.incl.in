@@ -82,15 +82,6 @@
 #
 ###################################################################
 
-#PLATFORM=@platform@
-#CC=@cc@
-#CXX=@cxx@
-#CXXFLAGS=@cxxflags@
-#LDFLAGS=@ldflags@
-#LIBS=@libs@
-#INCLUDES=@includes@
-#MODE=@mode@
-
 XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@

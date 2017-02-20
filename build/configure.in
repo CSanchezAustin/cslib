@@ -70,6 +70,9 @@ AC_SUBST(xercesname)
 debug_heap=${DEBUG_HEAP}
 AC_SUBST(debug_heap)
 
+libdir_prefix=${LIBDIR_PREFIX}
+AC_SUBST(libdir_prefix)
+
 csliblocal=${CSLIB_PROJECT_LOCAL}
 AC_SUBST(csliblocal)
 
