@@ -68,9 +68,6 @@
 // ]
 
 #include <algorithm>
-#ifdef __GNUG__
-#include <bits/stl_heap.h>
-#endif
 
 #ifdef _DEBUG
     #include <iostream>
@@ -79,7 +76,6 @@
 #include <util/UtilHeap.h>
 
 const int GROW_SIZE = 3;
-using namespace std;
 
 template <class Key, class Type, class  TypeCompare, class KeyCompare>
 inline Heap<Key, Type, TypeCompare, KeyCompare>::Heap()
@@ -335,6 +331,7 @@ inline bool
 Heap<Key, Type, TypeCompare, KeyCompare>::
 check_heap()
 {
+#ifdef DEBUG_HEAP
 	if ( _heap.size() > 0 )
 	{
 		std::vector< Type > testVector;
@@ -345,13 +342,9 @@ check_heap()
 			it++;
 		}
 
-#ifdef __GNUG__
-		return __is_heap( testVector.begin(), testVector.end(), _less );
-#else
-		return is_heap( testVector.begin(), testVector.end(), _less );
-#endif
+		return std::is_heap( testVector.begin(), testVector.end(), _less );
 	}
-
+#endif
 	return true;
 }
 

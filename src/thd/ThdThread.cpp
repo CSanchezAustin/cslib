@@ -355,7 +355,7 @@ void* _ThreadEntry( ThdThread::Startup *starter )
 #if defined(_WINDOWS) || defined(WIN32)
     _endthreadex( nResult );
 #else
-    ::pthread_exit(NULL);
+    ::pthread_exit( reinterpret_cast<void*>(nResult) );
 #endif
 
     return 0;

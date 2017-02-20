@@ -117,8 +117,8 @@ void test_logger()
         // load the xml counter document
         DOMElement* root = doc->getDocumentElement();
 
-        int res = logger->init( root, ctx );
-        res = logger->postInit( root, ctx );
+        logger->init( root, ctx );
+        logger->postInit( root, ctx );
 		doc->release();
 
         // should always fail

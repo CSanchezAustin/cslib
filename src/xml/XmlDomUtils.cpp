@@ -833,7 +833,7 @@ DomUtils::toDocument(
         parser->setDoNamespaces( namespaces );
         parser->setErrorHandler ( errHandler );
         
-		std::auto_ptr<char> bytes( StringUtils::toCString(data) );
+		AUTO_PTR(char) bytes( StringUtils::toCString(data) );
 		size_t len = ::strlen(bytes.get());
 		MemBufInputSource memBuf( (XMLByte*)bytes.get(), len, NTEXT("dom-message"));
         parser->parse( memBuf );

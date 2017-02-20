@@ -66,7 +66,7 @@
 // !        Changes History
 //         
 // ]
-
+#include <string.h>
 #if defined(_WINDOWS) || defined(WIN32)
 #pragma warning(disable:4786)
 #pragma warning(disable:4503)
@@ -251,6 +251,12 @@ inline T _AtomicDecrement(T* x)
 #include "core/Debug.h"
 #include "core/Assert.h"
 
+#include <memory>
+#if __cplusplus >= 201103L
+#   define AUTO_PTR( T ) std::unique_ptr<T>
+#else
+#   define AUTO_PTR( T ) std::auto_ptr<T>
+#endif
 
 extern InterLockedLong _gUnnamedInstCtr;
 

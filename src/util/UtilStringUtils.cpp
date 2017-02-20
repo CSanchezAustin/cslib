@@ -194,13 +194,13 @@ StringUtils::toScheduleTime(
 }
 
 
-std::auto_ptr<char>
+AUTO_PTR(char)
 StringUtils::toCString(
             const String &inStr, 
             const enumCodePage cp )
 {
 #ifndef UNICODE
-  return std::auto_ptr<char>(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
+  return AUTO_PTR(char)(::strcpy(new char[inStr.size() + 1], inStr.c_str()));
 #else
 #if defined(_WINDOWS) || defined(WIN32)
 
@@ -220,7 +220,7 @@ StringUtils::toCString(
                                 transcoded, sz, NULL, NULL );
             if (sz != 0)
             {
-                return std::auto_ptr<char>(transcoded);
+                return std::unique_ptr<char>(transcoded);
             }
             else
             {
@@ -237,7 +237,7 @@ StringUtils::toCString(
 			size_t sz = ::wcstombs( transcoded, inStr.c_str(), buffSize );
 			if (sz > 0)
 			{
-				return std::auto_ptr<char>(transcoded);
+				return std::unique_ptr<char>(transcoded);
 			}
 			else
 			{
@@ -246,7 +246,7 @@ StringUtils::toCString(
 		}
 #endif // WINDOWS
 
-		return std::auto_ptr<char>(NULL);
+		return std::unique_ptr<char>(NULL);
 
 #endif // UNICODE
 }
@@ -276,7 +276,7 @@ StringUtils::toString(
                 char *transcoded = new char[sz];
                 if (transcoded != NULL)
                 {
-		  sz = WideCharToMultiByte(realCodePage, 0, inStr, -1, transcoded, sz, NULL, NULL );
+		            sz = WideCharToMultiByte(realCodePage, 0, inStr, -1, transcoded, sz, NULL, NULL );
                     if (sz != 0)
                     {
                         result = transcoded;
@@ -573,7 +573,7 @@ StringUtils::trimBack(
 {
     bool done = source.size() == 0;
 	for ( String::size_type pos = source.size() - 1;
-          (pos >= 0) && !done; pos-- )
+          (pos > 0) && !done; pos-- )
     {
         // look for the current character in the
         // pattern string. The first time we do not find

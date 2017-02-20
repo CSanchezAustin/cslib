@@ -59,7 +59,7 @@
 #include <util/UtilStringUtils.h>
 
 
-static CHAR_T* _digits = NTEXT("0123456789ABCDEF");
+static const CHAR_T* _digits = NTEXT("0123456789ABCDEF");
 
 // parse a url in the form
 // <protocol>://address[:port]/serverpath

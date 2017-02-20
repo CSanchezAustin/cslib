@@ -277,7 +277,7 @@ void test_counter()
         // get a look before
         DomUtils::print( root, NTEXT("UTF-8"), targ );
 
-        int res = ctr->init( root, ctx );
+        ctr->init( root, ctx );
 
         for (int i = 0; i < 10; i++ )
         {
@@ -289,7 +289,7 @@ void test_counter()
         }
 
         // save it
-        res = ctr->update( root );
+        ctr->update( root );
 
         // and after
         DomUtils::print( root, NTEXT("UTF-8"), targ );

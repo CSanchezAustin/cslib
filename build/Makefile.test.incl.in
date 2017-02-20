@@ -82,16 +82,7 @@
 #
 ###################################################################
 
-#PLATFORM=@platform@
-#CC=@cc@
-#CXX=@cxx@
-#CXXFLAGS=@cxxflags@
-#LDFLAGS=@ldflags@
-#LIBS=@libs@
-#INCLUDES=@includes@
-#MODE=@mode@
-
-XERCESHOME=@xerceshome@
+XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
 
@@ -114,8 +105,11 @@ MODULE_OBJ_DIR		= ${MODULE_BASE_DIR}/obj/$(PLATFORM)-$(MODE)
 
 # other settings
 TEST_INCL			= -I$(CSLIB_DIST_HEADER_DIR) -I$(MODULE_BASE_DIR)
-TEST_SYS_INCL			= $(INCLUDES) -I$(XERCESHOME)/include/xercesc
-TEST_DEF		  	  	= -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
+TEST_SYS_INCL       = $(INCLUDES) -I$(XERCES_INCLUDES_HOME)
+TEST_DEF            = -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
+ifeq ($(DEBUG_HEAP), true)
+TEST_DEF           += -DDEBUG_HEAP
+endif
 
 ####################### PLATFORM DEPENDENCIES #####################
 
@@ -176,14 +170,13 @@ endif
 
 #=============== Additional Libraries =========================
 LDFLAGS += \
-	-L${XERCESHOME}/lib \
 	-L${CSLIB_DIST_LIB_DIR}
 
 ALLLIBS += \
-	-lpthread \
-	-ldl \
-	-l$(CSLIB_TARGETLIBNAME) \
-	-l$(XERCESNAME)
+	-l$(CSLIB_TARGETLIBNAME)    \
+	-l$(XERCESNAME)             \
+	-lpthread                   \
+	-ldl
 
 ###################### STANDARD TOOLS #############################
 DEPFILE = .depends

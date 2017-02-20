@@ -61,10 +61,6 @@
 #include <fstream>
 #include <sstream>
 
-#include "ser/SerMemInputSource.h"
-#include "ser/SerMemOutputSource.h"
-#include "ser/SerFileInputSource.h"
-#include "ser/SerFileOutputSource.h"
 #include "ser/SerSerializationMgr.h"
 #include "ser/SerOutputters.h"
 #include "ser/SerInputters.h"
@@ -469,170 +465,6 @@ void createData(
         endt-startt << NTEXT(" seconds") << std::endl;
 }
 
-
-void do_filebased( 
-    SerSerializationMgr& theMgr,
-    MasterStructContainer& sourceContainer )
-{
-    time_t startt, endt;
-
-    ///////////////////////////////////////////////////////////////
-        // File-based implementation
-        ///////////////////////////////////////////////////////////////
-        // test writing the source out
-        String fileName(NTEXT("test.persist"));
-
-        { // these parens make sure that the file is closed when the 
-            // object goes out of scope
-            SerFileOutputSource outFile( fileName );
-            startt = ::time(NULL);
-            if ( theMgr.serialize( sourceContainer, outFile ) != 0 )
-            {
-                CERR << NTEXT("problem serializing the object world to a file buffer") << std::endl;
-            }
-            endt = ::time(NULL);
-            COUT << NTEXT("Serialized file-based structures in: ") << 
-                endt-startt << NTEXT(" seconds") << std::endl;
-        }
-
-		COUT << NTEXT("---------------- doFileBased : Copy 1 --------------") << std::endl;
-		{
-			// now try streaming back in the file unbuffered
-			MasterStructContainer theUnbufferedContainer;
-			SerFileInputSource theUnbufferedSource( fileName, false );
-			startt = ::time(NULL);
-			if ( theMgr.deserialize( theUnbufferedContainer, 
-									 theUnbufferedSource ) == 0 )
-			{
-				endt = ::time(NULL);
-				COUT << 
-					NTEXT("Deserialized unbuffered file-based structures in: ") <<
-					endt-startt << NTEXT(" seconds") << std::endl;
-
-				print( theUnbufferedContainer );
-			}
-			else
-			{
-				CERR << NTEXT("problem deserializing the object world - file unbuffered") << std::endl;
-			}
-		}
-		COUT << NTEXT("---------------- doFileBased : Copy 1 --------------") << std::endl;
-
-		COUT << NTEXT("---------------- doFileBased : Copy 2 --------------") << std::endl;
-		{
-			// now try streaming back in the file unbuffered
-			MasterStructContainer theBufferedContainer;
-			SerFileInputSource theBufferedSource( fileName, true );
-			startt = ::time(NULL);
-			if ( theMgr.deserialize( theBufferedContainer, 
-									 theBufferedSource ) == 0 )
-			{
-				endt = ::time(NULL);
-				COUT << 
-					NTEXT("Deserialized buffered file-based structures in: ") <<
-					endt-startt << NTEXT(" seconds") << std::endl;
-				print( theBufferedContainer );
-			}
-			else
-			{
-				CERR << NTEXT("problem deserializing the object world-  file buffered") << std::endl;
-			}
-		}
-		COUT << NTEXT("---------------- doFileBased : Copy 2 --------------") << std::endl;
-
-}
-
-void do_membased( 
-    SerSerializationMgr& theMgr,
-    MasterStructContainer& sourceContainer )
-{
-    time_t startt, endt;
-
-    ///////////////////////////////////////////////////////////////
-        // Memory-based implementation
-        ///////////////////////////////////////////////////////////////
-
-        // first test the memory-based implementation with 
-        // preallocated buffer
-        size_t buffSize = sourceContainer.size();
-        SerMemOutputSource outPreallocated( buffSize );
-        startt = ::time(NULL);
-        if ( theMgr.serialize( sourceContainer, outPreallocated ) != 0 )
-        {
-            CERR << 
-                NTEXT("problem serializing the object world to a preallocated buffer") << std::endl;
-        }
-        endt = ::time(NULL);
-        COUT << 
-            NTEXT("Serialized preallocated memory-based structures in: ") << 
-            endt-startt << NTEXT(" seconds") << std::endl;
-
-        // next test the memory-based implementation with 
-        // dynamic buffer
-        SerMemOutputSource outDynamic;
-        startt = ::time(NULL);
-        if ( theMgr.serialize( sourceContainer, outDynamic ) != 0 )
-        {
-            CERR << 
-                NTEXT("problem serializing the object world to a dynamic buffer") << std::endl;
-        }
-        endt = ::time(NULL);
-        COUT << 
-            NTEXT("Serialized dynamic memory-based structures in: ") << 
-            endt-startt << NTEXT(" seconds") << std::endl;
-
-		COUT << NTEXT("---------------- doMemBased : outPreallocated source --------------") << std::endl;
-		{
-			// now test the memory input source
-			SerMemInputSource in( (char*)outPreallocated.getBuff(), 
-								  outPreallocated.getSize() );
-
-			MasterStructContainer theInputContainer;
-			startt = ::time(NULL);
-			if ( theMgr.deserialize( theInputContainer, in ) == 0 )
-			{
-				endt = ::time(NULL);
-				COUT << 
-					NTEXT("Deserialized memory-based structures in: ") <<
-					endt-startt << NTEXT(" seconds") << std::endl;
-            
-				print( theInputContainer );
-			}
-			else
-			{
-				CERR << NTEXT("problem deserializing the object world - memory") << std::endl;
-			}
-		}
-		COUT << NTEXT("---------------- doMemBased : outPreallocated source --------------") << std::endl;
-
-
-		COUT << NTEXT("---------------- doMemBased : outDynamic source --------------") << std::endl;
-		{
-			// now test the memory input source
-			SerMemInputSource in( (char*)outDynamic.getBuff(), 
-								  outDynamic.getSize() );
-
-			MasterStructContainer theInputContainer;
-			startt = ::time(NULL);
-			if ( theMgr.deserialize( theInputContainer, in ) == 0 )
-			{
-				endt = ::time(NULL);
-				COUT << 
-					NTEXT("Deserialized memory-based structures in: ") <<
-					endt-startt << NTEXT(" seconds") << std::endl;
-            
-				print( theInputContainer );
-			}
-			else
-			{
-				CERR << NTEXT("problem deserializing the object world - memory") << std::endl;
-			}
-		}
-		COUT << NTEXT("---------------- doMemBased : outDynamic source --------------") << std::endl;
-
-} // Memory-based implementation
-
-
 void test_serializable()
 {
     StXmlOpener opener;
@@ -656,13 +488,9 @@ void test_serializable()
             MasterStructContainer sourceContainer;
             createData( sourceContainer );
 
-			COUT << NTEXT("---------------- doFileBased reference data --------------") << std::endl;
+			COUT << NTEXT("---------------- reference data --------------") << std::endl;
             print( sourceContainer );
-			COUT << NTEXT("---------------- doFileBased reference data --------------") << std::endl;
-
-            do_filebased( theMgr, sourceContainer );
-
-            do_membased( theMgr, sourceContainer );
+			COUT << NTEXT("---------------- reference data --------------") << std::endl;
             
             // finally, test the copy function
             MasterStructContainer theCopyContainer;

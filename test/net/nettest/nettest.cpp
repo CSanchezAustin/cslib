@@ -125,7 +125,7 @@ void test_listener()
 	bool listening = listener.listen(1000, 5, NTEXT("192.168.0.120"));
 	if (listening)
 	{
-		SOCKET sock = listener.accept();
+		listener.accept();
 	}
 }
 

@@ -74,12 +74,6 @@ MODULE_SRC_DIR = $(SRC_SRC_DIR)/$(MODULE)
 MODULE_INC_DIR = $(SRC_INC_DIR)/$(MODULE)
 
 CPP_PUBHEADERS = \
-	$(MODULE_INC_DIR)/iSerInputSource.h       \
-	$(MODULE_INC_DIR)/iSerOutputSource.h      \
-	$(MODULE_INC_DIR)/SerMemInputSource.h     \
-	$(MODULE_INC_DIR)/SerMemOutputSource.h    \
-	$(MODULE_INC_DIR)/SerFileInputSource.h    \
-	$(MODULE_INC_DIR)/SerFileOutputSource.h	  \
 	$(MODULE_INC_DIR)/SerInputters.h	      \
 	$(MODULE_INC_DIR)/SerOutputters.h	      \
 	$(MODULE_INC_DIR)/SerCounters.h	          \
@@ -92,10 +86,6 @@ CSRC  =
 CCSRC = 
 
 CPPSRC = \
-	SerMemInputSource.cpp \
-	SerMemOutputSource.cpp \
-	SerFileInputSource.cpp  \
-	SerFileOutputSource.cpp \
 	SerSerializationMgr.cpp
 
 include ../../build/Makefile.rules

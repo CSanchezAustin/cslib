@@ -69,6 +69,7 @@
 
 
 #include <iostream>
+#include <cstdlib>
 #include <stdio.h>
 #include <signal.h>
 
@@ -79,14 +80,14 @@ namespace EXPORT_DLL Debug
 {
 
     // Error handling defs
-    typedef enum LogType
+    typedef enum
     {
         ERROR_TYPE = -1,
         WARN_TYPE = 0,
         MSG_TYPE = 1,
         DEBUG_TYPE = 2
         
-    };
+    } LogType;
 
     /**
        Called to set the debug output device

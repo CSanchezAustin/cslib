@@ -108,7 +108,7 @@ public:
     
     enum 
     {
-        BUFF_SIZE = 1024
+        BUFF_SIZE = 1024 * 8
     };
     
 private:

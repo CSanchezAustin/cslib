@@ -188,8 +188,6 @@ namespace EXPORT_DLL SerUtils
         const T_Outputter outputter)
     {
         typedef typename std::vector<T>::size_type SizeType;
-        typedef typename std::vector<T>::value_type ValueType;
-        typedef typename std::vector<T>::iterator Iterator;
         typedef typename std::vector<T>::const_iterator ConstIterator;
 
         if ( out.good() )
@@ -239,9 +237,6 @@ namespace EXPORT_DLL SerUtils
         const bool erase = true)
     {
         typedef typename std::vector<T>::size_type SizeType;
-        typedef typename std::vector<T>::value_type ValueType;
-        typedef typename std::vector<T>::iterator Iterator;
-        typedef typename std::vector<T>::const_iterator ConstIterator;
 
         if ( in.good() )
         {
@@ -347,8 +342,6 @@ namespace EXPORT_DLL SerUtils
         const T_Outputter outputter)
     {
         typedef typename std::vector<T*>::size_type SizeType;
-        typedef typename std::vector<T*>::value_type ValueType;
-        typedef typename std::vector<T*>::iterator Iterator;
         typedef typename std::vector<T*>::const_iterator ConstIterator;
 
         if ( out.good() )
@@ -398,9 +391,6 @@ namespace EXPORT_DLL SerUtils
         const bool erase = true)
     {
         typedef typename std::vector<T*>::size_type SizeType;
-        typedef typename std::vector<T*>::value_type ValueType;
-        typedef typename std::vector<T*>::iterator Iterator;
-        typedef typename std::vector<T*>::const_iterator ConstIterator;
 
         if ( in.good() )
         {
@@ -478,8 +468,6 @@ namespace EXPORT_DLL SerUtils
         const V_Count valueCounter)
     {
         typedef typename std::map<K, V>::size_type SizeType;
-        typedef typename std::map<K, V>::value_type ValueType;
-        typedef typename std::map<K, V>::iterator Iterator;
         typedef typename std::map<K, V>::const_iterator ConstIterator;
 
         size_t totSize = 0;
@@ -514,8 +502,6 @@ namespace EXPORT_DLL SerUtils
         const V_Outputter valueOutputter)
     {
         typedef typename std::map<K, V>::size_type SizeType;
-        typedef typename std::map<K, V>::value_type ValueType;
-        typedef typename std::map<K, V>::iterator Iterator;
         typedef typename std::map<K, V>::const_iterator ConstIterator;
 
         if ( out.good() )
@@ -572,9 +558,6 @@ namespace EXPORT_DLL SerUtils
         const bool erase = true)
     {
         typedef typename std::map<K, V>::size_type SizeType;
-        typedef typename std::map<K, V>::value_type ValueType;
-        typedef typename std::map<K, V>::iterator Iterator;
-        typedef typename std::map<K, V>::const_iterator ConstIterator;
 
         if ( in.good() )
         {

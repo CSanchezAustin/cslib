@@ -215,7 +215,7 @@ FileUtils::fileCopy(
 
     if ( input.good() && output.good() )
     {
-        std::auto_ptr<char> buff( new char[COPY_BUFF_SIZE] );
+        AUTO_PTR(char) buff( new char[COPY_BUFF_SIZE] );
         if ( buff.get() != NULL )
         {
             const char* pBuff = buff.get();
@@ -386,7 +386,7 @@ FileUtils::setAttributes(
     const String &source, 
     const FileAttributes &inAttrs )
 {
-    // BUGBUG: implement
+    // TODO: implement
     return true;
 }
 

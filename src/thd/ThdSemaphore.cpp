@@ -217,15 +217,15 @@ long
 ThdSemaphore::increment( 
             const long count )
 {
-    int lPrevCount = 0;
-    ::sem_getvalue( _mSemPtr, &lPrevCount );
-
-    for (int i = 0; i < count; i++ )
+    const long lPrevCount = _waiters;
+    const long numToRelease = count > lPrevCount ? lPrevCount : count;
+    
+    for (int i = 0; i < numToRelease; i++ )
     {
         ::sem_post( _mSemPtr );
     }
 
-    return (long)lPrevCount;
+    return lPrevCount;
 }
 
 // this constructor will create a new semaphore with the option to either create it 

@@ -81,18 +81,12 @@
 #      Contents:	
 #
 
-#PLATFORM=@platform@
-#CC=@cc@
-#CXX=@cxx@
-#CXXFLAGS=@cxxflags@
-#LDFLAGS=@ldflags@
-#LIBS=@libs@
-#INCLUDES=@includes@
-#MODE=@mode@
-
-XERCESHOME=@xerceshome@
+XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
+DEBUG_HEAP=@debug_heap@
+PLATFORM=@platform@
+CSLIB_INSTALL_PREFIX = @cslib_install_prefix@
 
 # Define global default target: ALL
 ALL : all
@@ -111,13 +105,20 @@ CSLIB_OBJ_DIR   = $(SRC_OBJ_DIR)/$(PLATFORM)/$(CXX)/$(MODE)
 # distribution defines
 DIST_TARGET_DIR = ${CSLIB_PROJECT_LOCAL}/dist
 DIST_HEADER_DIR = $(DIST_TARGET_DIR)/$(VER)/h
-DIST_LIB_DIR    = $(DIST_TARGET_DIR)/$(VER)/lib/@platform@/$(CXX)/$(MODE)
-DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/@platform@/$(CXX)/$(MODE)
+DIST_LIB_DIR    = $(DIST_TARGET_DIR)/$(VER)/lib/${PLATFORM}/$(CXX)/$(MODE)
+DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/${PLATFORM}/$(CXX)/$(MODE)
+
+# install defined
+LIB_INSTALL_DIR = ${CSLIB_INSTALL_PREFIX}/lib
+HEADER_INSTALL_DIR = ${CSLIB_INSTALL_PREFIX}/include/cslib
 
 # other defines
 CSLIB_INCL      = -I$(SRC_INC_DIR) -I$(SRC_SRC_DIR)/internal -I$(SRC_BUILD_DIR)
-CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCESHOME)/include
-CSLIB_DEF       = -D${PLATFORM} -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE -D__STL_USE_MALLOC
+CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCES_INCLUDES_HOME)
+CSLIB_DEF       = -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
+ifeq ($(DEBUG_HEAP), true)
+CSLIB_DEF       += -DDEBUG_HEAP
+endif
 
 ####################### PLATFORM DEPENDENCIES #####################
 
@@ -156,7 +157,7 @@ endif
 #=============== MAC OS X SPECIFIC OPTIONS =========================
 ifeq ($(PLATFORM), MACOSX)
     PLATFORM_LIBRARIES = -framework CoreServices
-    PLATFORM_COMPILE_OPTIONS =  -Wall -pedantic
+    PLATFORM_COMPILE_OPTIONS = -D${PLATFORM} -Wall -pedantic
     MAKELIB=ar r
     MAKESLIB = ${CXX} -D${PLATFORM} -dynamiclib ${LDFLAGS}
     MAKESLIB_C = ${CC} -D${PLATFORM} -dynamiclib ${LDFLAGS}
@@ -219,6 +220,10 @@ info :
 		@echo "DIST_HEADER_DIR	: $(DIST_HEADER_DIR)"
 		@echo "DIST_LIB_DIR   	: $(DIST_LIB_DIR)"
 		@echo "DIST_BIN_DIR   	: $(DIST_BIN_DIR)"
+		@echo "-------------------------------------------------------"
+		@echo "CSLIB_INSTALL_PREFIX : $(CSLIB_INSTALL_PREFIX)"
+		@echo "LIB_INSTALL_DIR      : $(LIB_INSTALL_DIR)"
+		@echo "HEADER_INSTALL_DIR   : $(HEADER_INSTALL_DIR)"
 		@echo "-------------------------------------------------------"
 		@echo "CSLIB_INCL     	: $(CSLIB_INCL)"
 		@echo "CSLIB_SYS_INCL 	: $(CSLIB_SYS_INCL)"

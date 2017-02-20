@@ -58,6 +58,7 @@
 #include <cslib.h>
 
 #include <iostream>
+#include <sstream>
 #include <memory>
 
 #include <xercesc/dom/DOMNode.hpp>
@@ -66,10 +67,6 @@
 #include <xercesc/dom/DOMDocument.hpp>
 
 #include <ser/SerSerializationMgr.h>
-#include <ser/iSerOutputSource.h>
-#include <ser/iSerInputSource.h>
-#include <ser/SerMemOutputSource.h>
-#include <ser/SerMemInputSource.h>
 #include <ser/SerStdLib.h>
 #include <log/LogStdLogger.h>
 #include <sys/SysContext.h>
@@ -123,13 +120,12 @@ SerSerializationMgr::postInit(
 int 
 SerSerializationMgr::serialize( 
     iSerializable& theWorld, 
-    iSerOutputSource& theSource )
+    std::ostream& out )
 {
     // make sure we have exclusive access to the world
     StSerializableLocker lock(theWorld);
 
     // get the output source
-    std::ostream& out = theSource.getOutputStream();
     if ( !out.good() )
     {
         CBLOGERR( _logger, 
@@ -174,13 +170,11 @@ SerSerializationMgr::serialize(
 int 
 SerSerializationMgr::deserialize( 
     iSerializable& theWorld, 
-    iSerInputSource& theSource )
+    std::istream& in )
 {
     // make sure we have exclusive access to the world
     StSerializableLocker lock(theWorld);
 
-    // get the input source
-    std::istream& in = theSource.getInputStream();
     if ( !in.good() )
     {
         CBLOGERR( _logger, 
@@ -249,17 +243,14 @@ SerSerializationMgr::copy(
     StSerializableLocker lock( theInputWorld );
     StSerializableLocker lock2( theOutputWorld );
 
-    // optimize by getting calculating the size and preallocation
-    // the output buffer
-    SerMemOutputSource out( theInputWorld.size() );
-//    SerMemOutputSource out;
+    std::ostringstream out;
     int res = serialize( theInputWorld, out );
     if ( res != SER_NOERR )
     {
         return res;
     }
 
-    SerMemInputSource in( (char*)out.getBuff(), out.getSize() );
+    std::istringstream in(out.str());
     return deserialize( theOutputWorld, in );
 }
 

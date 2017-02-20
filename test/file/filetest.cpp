@@ -116,6 +116,8 @@ test_utils()
     res1 = FileUtils::resolve(NTEXT("~/cslib"));
     res1 = FileUtils::resolve(NTEXT("~sanchezc/cslib"));
 #endif
+    COUT << "res: " << res << std::endl;
+    COUT << "res1: " << res1 << std::endl;
 }
 
 
