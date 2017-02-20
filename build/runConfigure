@@ -151,7 +151,7 @@ while [ $# -gt 0 ]
 
    -h)
         debug_heap=true; shift 1;;
-libdir_prefix=${LIBDIR_PREFIX}
+
    -h)
         debug_heap=true; shift 1;;
 

@@ -167,6 +167,9 @@ cleanall::
 	@echo " "
 	$(RM) $(MODULE_BASE_DIR)/Makefile $(MODULE_BASE_DIR)/Makefile.bak
 
+install::
+	@echo "Nothing to make here"
+
 ######################### BUILD RULES ############################
 
 # Tell make where the object files are for proper resolution of suffix rules
