@@ -331,6 +331,7 @@ inline bool
 Heap<Key, Type, TypeCompare, KeyCompare>::
 check_heap()
 {
+#ifdef DEBUG_HEAP
 	if ( _heap.size() > 0 )
 	{
 		std::vector< Type > testVector;
@@ -343,7 +344,7 @@ check_heap()
 
 		return std::is_heap( testVector.begin(), testVector.end(), _less );
 	}
-
+#endif
 	return true;
 }
 

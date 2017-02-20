@@ -67,6 +67,9 @@ AC_SUBST(xerces_includes_home)
 xercesname=${XERCESNAME}
 AC_SUBST(xercesname)
 
+debug_heap=${DEBUG_HEAP}
+AC_SUBST(debug_heap)
+
 csliblocal=${CSLIB_PROJECT_LOCAL}
 AC_SUBST(csliblocal)
 

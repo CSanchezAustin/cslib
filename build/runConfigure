@@ -70,6 +70,7 @@
 #   INCLUDES
 #   XERCES_INCLUDES_HOME
 #   XERCESNAME
+#   DEBUG_HEAP
 #
 
 usage()
@@ -82,10 +83,11 @@ usage()
     echo "       -m specifies the build mode (accepts 'dbg' or 'rel')"
     echo "       -b directory of the C/C++ compilers if they are not in the search path"
     echo "       -l <extra linker options>"
-    echo "       -L specifies additional include paths  (e.g. xercesc, STL port, etc..)"
+    echo "       -I specifies additional include paths  (e.g. xercesc, STL port, etc..)"
     echo "       -L specifies additional libraries (e.g. xerces-c1_4, pthread, etc..)"
     echo "       -x Path to xerces include directory"
     echo "       -X Xerces library name"
+    echo "       -d Debug Heap"
     echo "       -z <extra compiler options>"
     echo "       -P <install-prefix>"
     echo "       -C <any one extra configure options>"
@@ -120,6 +122,7 @@ mode=dbg                # default mode is debug
 
 xerces_includes_home=/usr/local/include/xercesc
 xercesname=xerces-c
+debug_heap=false
 
 linkeroptions=""        # other settings
 compileroptions=""
@@ -144,6 +147,9 @@ while [ $# -gt 0 ]
 
    -X)
         xercesname=$2; shift 2;;
+
+   -h)
+        debug_heap=true; shift 1;;
 
    -L)
         libs="$libs $2"; shift 2;;
@@ -262,6 +268,9 @@ export INCLUDES
 XERCES_INCLUDES_HOME="$xerces_includes_home"
 export XERCES_INCLUDES_HOME
 
+DEBUG_HEAP="$debug_heap"
+export DEBUG_HEAP
+
 XERCESNAME="$xercesname"
 export XERCESNAME
 
@@ -275,6 +284,7 @@ echo "C++ Compiler: ${CXX}"
 echo "Mode: $mode"
 echo "Additional includes: $includes"
 echo "Xerces Home: $xerces_includes_home"
+echo "Debug Heap: $debug_heap"
 
 echo "Additional libs: $libs"
 echo "Extra compile options: $compileroptions"

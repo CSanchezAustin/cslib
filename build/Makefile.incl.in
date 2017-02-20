@@ -84,6 +84,7 @@
 XERCES_INCLUDES_HOME=@xerces_includes_home@
 XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
+DEBUG_HEAP=@debug_heap@
 
 # Define global default target: ALL
 ALL : all
@@ -108,7 +109,10 @@ DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/@platform@/$(CXX)/$(MODE)
 # other defines
 CSLIB_INCL      = -I$(SRC_INC_DIR) -I$(SRC_SRC_DIR)/internal -I$(SRC_BUILD_DIR)
 CSLIB_SYS_INCL  = $(INCLUDES) -I$(XERCES_INCLUDES_HOME)
-CSLIB_DEF       = -D${PLATFORM} -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE -D__STL_USE_MALLOC
+CSLIB_DEF       = -DNOMINMAX -DUNIX -D_UNIX -D_REENTRANT -D_THREAD_SAFE
+ifeq ($(DEBUG_HEAP), true)
+CSLIB_DEF       += -DDEBUG_HEAP
+endif
 
 ####################### PLATFORM DEPENDENCIES #####################
 
@@ -147,7 +151,7 @@ endif
 #=============== MAC OS X SPECIFIC OPTIONS =========================
 ifeq ($(PLATFORM), MACOSX)
     PLATFORM_LIBRARIES = -framework CoreServices
-    PLATFORM_COMPILE_OPTIONS =  -Wall -pedantic
+    PLATFORM_COMPILE_OPTIONS = -D${PLATFORM} -Wall -pedantic
     MAKELIB=ar r
     MAKESLIB = ${CXX} -D${PLATFORM} -dynamiclib ${LDFLAGS}
     MAKESLIB_C = ${CC} -D${PLATFORM} -dynamiclib ${LDFLAGS}
