@@ -170,6 +170,9 @@ cleanall::
 install::
 	@echo "Nothing to make here"
 
+installdev::
+	@echo "Nothing to make here"
+
 ######################### BUILD RULES ############################
 
 # Tell make where the object files are for proper resolution of suffix rules

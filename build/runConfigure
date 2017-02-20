@@ -123,7 +123,7 @@ mode=dbg                # default mode is debug
 xerces_includes_home=/usr/local/include/xercesc
 xercesname=xerces-c
 debug_heap=false
-libdir_prefix=/usr/local/lib
+cslib_install_prefix=/usr/local
 
 linkeroptions=""        # other settings
 compileroptions=""
@@ -168,7 +168,7 @@ while [ $# -gt 0 ]
         compileroptions="$compileroptions $2"; shift 2 ;;
 
    -P)
-        configureoptions="$configureoptions --prefix=$2"; "libdir_prefix=$2"; shift 2;;
+        configureoptions="$configureoptions --prefix=$2"; "cslib_install_prefix=$2"; shift 2;;
 
    -C)
         configureoptions="$configureoptions $2"; shift 2;;
@@ -278,8 +278,8 @@ export XERCESNAME
 DEBUG_HEAP="$debug_heap"
 export DEBUG_HEAP
 
-LIBDIR_PREFIX="$libdir_prefix"
-export LIBDIR_PREFIX
+CSLIB_INSTALL_PREFIX="$cslib_install_prefix"
+export CSLIB_INSTALL_PREFIX
 
 CSLIB_PROJECT_LOCAL="$csliblocal"
 export CSLIB_PROJECT_LOCAL
@@ -292,7 +292,7 @@ echo "Mode: $mode"
 echo "Additional includes: $includes"
 echo "Xerces Home: $xerces_includes_home"
 echo "Debug Heap: $debug_heap"
-echo "Install Prefix $libdir_prefix"
+echo "Install Prefix: $cslib_install_prefix"
 
 echo "Additional libs: $libs"
 echo "Extra compile options: $compileroptions"

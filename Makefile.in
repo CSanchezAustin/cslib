@@ -77,7 +77,6 @@ CXXFLAGS = @cxxflags@
 LDFLAGS = @ldflags@
 LIBS = @libs@
 MODE = @mode@
-LIBDIR_PREFIX = @libdir_prefix@
 
 include ./build/version.incl
 include ./build/Makefile.incl
@@ -182,5 +181,11 @@ dist:: Prepare_r $(CSLIB_DIRS)
 
 install:: dist
 	@echo installing files ...
-	$(CP) ${DIST_LIB_DIR}/${TARGETSLIBNAME} ${LIBDIR_PREFIX}
-	$(CD) ${LIBDIR_PREFIX}; ln -sf ${TARGETSLIBNAME} lib$(PRODUCTNAME).$(SLIB_SUFFIX)
+	$(CP) ${DIST_LIB_DIR}/${TARGETSLIBNAME} ${LIB_INSTALL_DIR}
+	$(CD) ${LIB_INSTALL_DIR}; ln -sf ${TARGETSLIBNAME} lib$(PRODUCTNAME).$(SLIB_SUFFIX)
+
+installdev:: install
+	$(MKDIR) -p ${HEADER_INSTALL_DIR}
+	$(CP) -r $(DIST_HEADER_DIR)/* ${HEADER_INSTALL_DIR}
+	$(CP) ${DIST_LIB_DIR}/${TARGETLIBNAME} ${LIB_INSTALL_DIR}
+	$(CD) ${LIB_INSTALL_DIR}; ln -sf ${TARGETLIBNAME} lib$(PRODUCTNAME).$(LIB_SUFFIX)

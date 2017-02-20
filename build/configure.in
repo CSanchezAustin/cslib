@@ -3,7 +3,7 @@ dnl ## PROLOG
 dnl ##
 
 dnl # autoconf initialization
-AC_INIT(cslib, 1.0.4, sanchez.chris@gmail.com)
+AC_INIT(cslib, 1.0.5, sanchez.chris@gmail.com)
 AC_CONFIG_SRCDIR([../src/cslib.cpp])
 AC_CONFIG_HEADER([config.h])
 
@@ -70,8 +70,8 @@ AC_SUBST(xercesname)
 debug_heap=${DEBUG_HEAP}
 AC_SUBST(debug_heap)
 
-libdir_prefix=${LIBDIR_PREFIX}
-AC_SUBST(libdir_prefix)
+cslib_install_prefix=${CSLIB_INSTALL_PREFIX}
+AC_SUBST(cslib_install_prefix)
 
 csliblocal=${CSLIB_PROJECT_LOCAL}
 AC_SUBST(csliblocal)

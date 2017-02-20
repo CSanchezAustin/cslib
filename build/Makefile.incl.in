@@ -86,6 +86,7 @@ XERCESNAME=@xercesname@
 CSLIB_PROJECT_LOCAL=@csliblocal@
 DEBUG_HEAP=@debug_heap@
 PLATFORM=@platform@
+CSLIB_INSTALL_PREFIX = @cslib_install_prefix@
 
 # Define global default target: ALL
 ALL : all
@@ -106,6 +107,10 @@ DIST_TARGET_DIR = ${CSLIB_PROJECT_LOCAL}/dist
 DIST_HEADER_DIR = $(DIST_TARGET_DIR)/$(VER)/h
 DIST_LIB_DIR    = $(DIST_TARGET_DIR)/$(VER)/lib/${PLATFORM}/$(CXX)/$(MODE)
 DIST_BIN_DIR    = $(DIST_TARGET_DIR)/$(VER)/bin/${PLATFORM}/$(CXX)/$(MODE)
+
+# install defined
+LIB_INSTALL_DIR = ${CSLIB_INSTALL_PREFIX}/lib
+HEADER_INSTALL_DIR = ${CSLIB_INSTALL_PREFIX}/include
 
 # other defines
 CSLIB_INCL      = -I$(SRC_INC_DIR) -I$(SRC_SRC_DIR)/internal -I$(SRC_BUILD_DIR)
@@ -215,6 +220,10 @@ info :
 		@echo "DIST_HEADER_DIR	: $(DIST_HEADER_DIR)"
 		@echo "DIST_LIB_DIR   	: $(DIST_LIB_DIR)"
 		@echo "DIST_BIN_DIR   	: $(DIST_BIN_DIR)"
+		@echo "-------------------------------------------------------"
+		@echo "CSLIB_INSTALL_PREFIX : $(CSLIB_INSTALL_PREFIX)"
+		@echo "LIB_INSTALL_DIR      : $(LIB_INSTALL_DIR)"
+		@echo "HEADER_INSTALL_DIR   : $(HEADER_INSTALL_DIR)"
 		@echo "-------------------------------------------------------"
 		@echo "CSLIB_INCL     	: $(CSLIB_INCL)"
 		@echo "CSLIB_SYS_INCL 	: $(CSLIB_SYS_INCL)"
